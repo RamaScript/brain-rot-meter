@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain Rot Meter – Count Every Reel. Watch Your Brain Rot.</title>
+  <meta name="description" content="Brain Rot Meter tracks every Instagram Reel and YouTube Short you watch. See your brain rot in real time. No fluff. Just the raw, rotting truth." />
+  <meta name="keywords" content="brain rot, screen time, reels tracker, shorts tracker, digital wellness, android app" />
+  <meta name="author" content="Brain Rot Meter" />
+  <meta name="theme-color" content="#050505" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Brain Rot Meter – Count Every Reel. Watch Your Brain Rot." />
+  <meta property="og:description" content="Track every Reel and Short you watch. See your brain rot in real time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://brainrotmeter.app/og-image.png" />
+  <meta property="og:url" content="https://brainrotmeter.app" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brain Rot Meter" />
+  <meta name="twitter:description" content="Count Every Reel. Watch Your Brain Rot." />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Particle canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">🧠 Brain Rot Meter</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#stats">Stats</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#terms">Terms</a></li>
+        <li><a href="#download" class="nav-cta">Download App</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge fade-in">🔴 Now tracking your rot</div>
+      <h1 class="hero-headline fade-in delay-1">
+        Your Brain<br/>
+        <span class="glitch" data-text="Is Counting.">Is Counting.</span><br/>
+        <em>Are You?</em>
+      </h1>
+      <p class="hero-sub fade-in delay-2">
+        Track every Reel and Short you watch.<br/>
+        See your brain rot in real time.
+      </p>
+      <div class="hero-buttons fade-in delay-3">
+        <a href="#download" class="btn-primary">Download App</a>
+        <a href="#how-it-works" class="btn-ghost">Learn More ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in delay-2">
+      <div class="brain-container">
+        <div class="brain-mascot" id="brain-mascot">
+          <div class="brain-emoji" id="brain-emoji">🧠</div>
+          <div class="brain-glow"></div>
+          <div class="brain-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+          </div>
+        </div>
+        <div class="floating-counter" id="floating-counter">
+          <span class="counter-brain">🧠</span>
+          <span class="counter-num" id="hero-counter">0</span>
+        </div>
+        <div class="stage-label" id="stage-label">Healthy</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">scroll to face the truth ↓</div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-header reveal">
+      <span class="section-tag">What it does</span>
+      <h2>No Rewards. No Streaks.<br/><span class="accent">Just The Truth.</span></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal" data-delay="0">
+        <div class="feature-icon">⚡</div>
+        <h3>Real-Time Counter</h3>
+        <p>Every swipe counted. Instantly. No lag, no estimates — just raw, painful accuracy.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="100">
+        <div class="feature-icon">🪟</div>
+        <h3>Floating Overlay</h3>
+        <p>A floating counter sits on top of Instagram and YouTube so you can't escape the number.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="200">
+        <div class="feature-icon">🧠</div>
+        <h3>Brain Health Stages</h3>
+        <p>Watch your brain visually deteriorate through 10 distinct stages as you keep scrolling.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="300">
+        <div class="feature-icon">📊</div>
+        <h3>Daily Statistics</h3>
+        <p>A full breakdown of today's damage. See your peak hours, worst streaks, everything.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="400">
+        <div class="feature-icon">📅</div>
+        <h3>Weekly Reports</h3>
+        <p>Monday morning reality checks. Your week in reels, visualized.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="500">
+        <div class="feature-icon">📱</div>
+        <h3>Platform Breakdown</h3>
+        <p>Instagram vs YouTube. See which app is melting your brain faster.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-header reveal">
+      <span class="section-tag">How it works</span>
+      <h2>Five Steps To<br/><span class="accent">Brain Rot Awareness</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal" data-delay="0">
+        <div class="timeline-num">01</div>
+        <div class="timeline-content">
+          <h3>Grant Permissions</h3>
+          <p>Enable Accessibility Services so Brain Rot Meter can detect when you're scrolling Reels or Shorts.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-delay="150">
+        <div class="timeline-num">02</div>
+        <div class="timeline-content">
+          <h3>Open Reels or Shorts</h3>
+          <p>Fire up Instagram or YouTube. The overlay activates automatically when you enter supported feeds.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-delay="300">
+        <div class="timeline-num">03</div>
+        <div class="timeline-content">
+          <h3>Counter Increases</h3>
+          <p>Swipe. +1. Swipe. +1. Every single reel, every single short — counted in real time.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-delay="450">
+        <div class="timeline-num">04</div>
+        <div class="timeline-content">
+          <h3>Brain Slowly Rots</h3>
+          <p>Your brain mascot degrades visually as you consume more content. It's deeply uncomfortable. That's the point.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-delay="600">
+        <div class="timeline-num">05</div>
+        <div class="timeline-content">
+          <h3>View Your Statistics</h3>
+          <p>Open Brain Rot Meter to review your full damage report. Daily. Weekly. All time. Face the numbers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAIN STAGES -->
+  <section class="brain-stages" id="brain-stages">
+    <div class="section-header reveal">
+      <span class="section-tag">Brain Health Stages</span>
+      <h2>How Rotten<br/><span class="accent">Are You Today?</span></h2>
+    </div>
+    <div class="stages-grid">
+      <div class="stage-card reveal" data-stage="1" data-delay="0">
+        <div class="stage-emoji">🧠</div>
+        <div class="stage-num">Stage 1</div>
+        <div class="stage-name">Healthy</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:10%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="2" data-delay="80">
+        <div class="stage-emoji">😐</div>
+        <div class="stage-num">Stage 2</div>
+        <div class="stage-name">Distracted</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:20%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="3" data-delay="160">
+        <div class="stage-emoji">🌫️</div>
+        <div class="stage-num">Stage 3</div>
+        <div class="stage-name">Brain Fog</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:30%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="4" data-delay="240">
+        <div class="stage-emoji">😴</div>
+        <div class="stage-num">Stage 4</div>
+        <div class="stage-name">Tired</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:40%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="5" data-delay="320">
+        <div class="stage-emoji">⚡</div>
+        <div class="stage-num">Stage 5</div>
+        <div class="stage-name">Overstimulated</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:50%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="6" data-delay="400">
+        <div class="stage-emoji">🍳</div>
+        <div class="stage-num">Stage 6</div>
+        <div class="stage-name">Fried</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:60%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="7" data-delay="480">
+        <div class="stage-emoji">💀</div>
+        <div class="stage-num">Stage 7</div>
+        <div class="stage-name">Damaged</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:70%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="8" data-delay="560">
+        <div class="stage-emoji">🦠</div>
+        <div class="stage-num">Stage 8</div>
+        <div class="stage-name">Rotting</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:80%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="9" data-delay="640">
+        <div class="stage-emoji">☢️</div>
+        <div class="stage-num">Stage 9</div>
+        <div class="stage-name">Critical</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:90%"></div></div>
+      </div>
+      <div class="stage-card reveal" data-stage="10" data-delay="720">
+        <div class="stage-emoji">⬛</div>
+        <div class="stage-num">Stage 10</div>
+        <div class="stage-name">Dead Brain</div>
+        <div class="stage-bar"><div class="stage-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal" data-delay="0">
+        <div class="stat-num" data-target="1200" data-suffix="+">0</div>
+        <div class="stat-label">Reels Tracked</div>
+      </div>
+      <div class="stat-item reveal" data-delay="150">
+        <div class="stat-num" data-target="300" data-suffix="+">0</div>
+        <div class="stat-label">Hours Saved</div>
+      </div>
+      <div class="stat-item reveal" data-delay="300">
+        <div class="stat-num" data-target="10" data-suffix="">0</div>
+        <div class="stat-label">Brain Stages</div>
+      </div>
+      <div class="stat-item reveal" data-delay="450">
+        <div class="stat-num" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label">Real-Time Tracking</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="screenshots" id="screenshots">
+    <div class="section-header reveal">
+      <span class="section-tag">Screenshots</span>
+      <h2>See It In<br/><span class="accent">Action</span></h2>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carousel-track">
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen screen-home">
+              <div class="mock-status-bar">
+                <span>9:41</span>
+                <span>🔋</span>
+              </div>
+              <div class="mock-header">Brain Rot Meter</div>
+              <div class="mock-brain-big">🧠</div>
+              <div class="mock-count">Today: <strong>47 reels</strong></div>
+              <div class="mock-stage-badge">Stage 3 – Brain Fog</div>
+              <div class="mock-bar-wrap">
+                <div class="mock-bar"><div class="mock-bar-fill" style="width:30%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-label">Home Screen</div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen screen-overlay">
+              <div class="mock-app-bg">📸 Instagram</div>
+              <div class="mock-overlay-pill">🧠 <strong>23</strong></div>
+            </div>
+          </div>
+          <div class="phone-label">Floating Counter</div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen screen-stats">
+              <div class="mock-status-bar">
+                <span>9:41</span>
+                <span>🔋</span>
+              </div>
+              <div class="mock-header">Stats</div>
+              <div class="mock-chart">
+                <div class="mock-bar-v" style="height:40%"></div>
+                <div class="mock-bar-v" style="height:70%"></div>
+                <div class="mock-bar-v" style="height:55%"></div>
+                <div class="mock-bar-v" style="height:90%"></div>
+                <div class="mock-bar-v" style="height:45%"></div>
+                <div class="mock-bar-v" style="height:80%"></div>
+                <div class="mock-bar-v" style="height:60%"></div>
+              </div>
+              <div class="mock-week">Mon – Sun</div>
+            </div>
+          </div>
+          <div class="phone-label">Stats Screen</div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen screen-stages">
+              <div class="mock-status-bar">
+                <span>9:41</span>
+                <span>🔋</span>
+              </div>
+              <div class="mock-header">Brain Stages</div>
+              <div class="mock-stages-list">
+                <div class="mock-stage-row active">🧠 Stage 1 – Healthy</div>
+                <div class="mock-stage-row">😐 Stage 2 – Distracted</div>
+                <div class="mock-stage-row">🌫️ Stage 3 – Brain Fog</div>
+                <div class="mock-stage-row">😴 Stage 4 – Tired</div>
+                <div class="mock-stage-row">⚡ Stage 5 – Overstim…</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-label">Brain Stages</div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carousel-prev">←</button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+        <button class="carousel-btn" id="carousel-next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-header reveal">
+      <span class="section-tag">FAQ</span>
+      <h2>You Have<br/><span class="accent">Questions</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal" data-delay="0">
+        <button class="faq-question">
+          What is Brain Rot Meter?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Brain Rot Meter is an Android app that tracks how many Instagram Reels and YouTube Shorts you watch. It displays a floating counter in real time and shows your brain health deteriorating across 10 stages. No XP. No rewards. Just awareness.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-delay="80">
+        <button class="faq-question">
+          How does it count reels?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>The app uses Android Accessibility Services to detect scrolling activity within supported apps. When a scroll gesture is detected inside the Reels or Shorts feed, the counter increments. No video content is accessed or recorded.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-delay="160">
+        <button class="faq-question">
+          Does it work with YouTube Shorts?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Brain Rot Meter is fully compatible with YouTube Shorts. The floating overlay appears whenever you enter the Shorts feed, and each swipe increments your counter.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-delay="240">
+        <button class="faq-question">
+          Does it work with Instagram Reels?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Instagram Reels are fully supported. The overlay activates automatically when you open your Reels feed.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-delay="320">
+        <button class="faq-question">
+          Does it collect personal data?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Brain Rot Meter does not collect passwords, messages, photos, videos, or contacts. Only reel/short count statistics are tracked, and they are stored locally on your device. See the Privacy Policy section for full details.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" data-delay="400">
+        <button class="faq-question">
+          Is it free?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Brain Rot Meter is completely free. There are no paid tiers, no ads, no subscriptions. The rot is free to witness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD CTA -->
+  <section class="download-cta" id="download">
+    <div class="download-glow"></div>
+    <div class="download-content reveal">
+      <div class="download-brain">🧠</div>
+      <h2>Ready To Face<br/><span class="accent">The Numbers?</span></h2>
+      <p>Your brain is already counting. Now you can too.</p>
+      <a href="#" class="btn-primary btn-large">Download Brain Rot Meter</a>
+      <span class="download-note">Available on Android · Free · No Account Required</span>
+    </div>
+  </section>
+
+  <!-- PRIVACY POLICY -->
+  <section class="legal-section" id="privacy">
+    <div class="legal-inner">
+      <div class="section-header reveal">
+        <span class="section-tag">Legal</span>
+        <h2>Privacy <span class="accent">Policy</span></h2>
+      </div>
+      <div class="legal-content reveal">
+        <p class="legal-updated">Last updated: June 2025</p>
+
+        <h3>Overview</h3>
+        <p>Brain Rot Meter is committed to protecting your privacy. We do not sell your data. We do not share your data. We collect only what is necessary to provide core app functionality.</p>
+
+        <h3>Information We Collect</h3>
+        <p>To function, the app may collect or process:</p>
+        <ul>
+          <li>App usage statistics (how often the app is opened)</li>
+          <li>Reel and Short count statistics (how many you've watched)</li>
+          <li>Device information required for core functionality (OS version, device model)</li>
+        </ul>
+
+        <h3>Information We Do Not Collect</h3>
+        <p>Brain Rot Meter does not collect, access, or transmit:</p>
+        <ul>
+          <li>Passwords or login credentials</li>
+          <li>Messages or communications</li>
+          <li>Photos or videos</li>
+          <li>Contacts or address book data</li>
+          <li>Content of any reels or shorts viewed</li>
+        </ul>
+
+        <h3>Data Storage</h3>
+        <p>All statistics are stored locally on your device. No data is transmitted to external servers unless you explicitly enable a future cloud synchronization feature (if introduced). You may request deletion of any stored data by clearing the app's data in your Android settings or by contacting us.</p>
+
+        <h3>Accessibility Services</h3>
+        <p>Brain Rot Meter uses Android Accessibility Services solely to detect scrolling activity within supported apps (Instagram and YouTube) in order to count reels and shorts. This service does not read, record, or transmit any content displayed on your screen.</p>
+
+        <h3>Third-Party Services</h3>
+        <p>Brain Rot Meter is not affiliated with, endorsed by, or connected to Instagram, YouTube, TikTok, Meta, or Google. Any trademarks mentioned belong to their respective owners.</p>
+
+        <h3>Children's Privacy</h3>
+        <p>Brain Rot Meter is intended for users aged 13 and older. We do not knowingly collect data from children under 13.</p>
+
+        <h3>Contact</h3>
+        <p>For privacy questions or data deletion requests, contact us at: <a href="mailto:privacy@brainrotmeter.app">privacy@brainrotmeter.app</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMS & CONDITIONS -->
+  <section class="legal-section" id="terms">
+    <div class="legal-inner">
+      <div class="section-header reveal">
+        <span class="section-tag">Legal</span>
+        <h2>Terms &amp; <span class="accent">Conditions</span></h2>
+      </div>
+      <div class="legal-content reveal">
+        <p class="legal-updated">Last updated: June 2025</p>
+
+        <h3>1. Acceptance of Terms</h3>
+        <p>By downloading, installing, or using Brain Rot Meter ("the App"), you agree to be bound by these Terms and Conditions. If you do not agree, do not use the App.</p>
+
+        <h3>2. Use at Your Own Risk</h3>
+        <p>Brain Rot Meter is provided for informational and awareness purposes only. The App is provided "as is" without warranties of any kind, express or implied. You use the App entirely at your own risk.</p>
+
+        <h3>3. No Guarantee of Accuracy</h3>
+        <p>While we strive for accuracy in tracking, Brain Rot Meter does not guarantee that reel or short counts are 100% accurate. Detection depends on device compatibility, OS version, app updates from third-party platforms, and Accessibility Services availability.</p>
+
+        <h3>4. Service Availability</h3>
+        <p>We do not guarantee that the App will be available at all times or free from bugs. We reserve the right to modify, suspend, or discontinue the App at any time without notice.</p>
+
+        <h3>5. Intellectual Property</h3>
+        <p>All content, design, code, and branding associated with Brain Rot Meter are the intellectual property of their respective owners. You may not copy, reproduce, or distribute any part of the App without express written permission.</p>
+
+        <h3>6. User Responsibilities</h3>
+        <p>You are responsible for ensuring that your use of Brain Rot Meter complies with all applicable laws in your jurisdiction. You must not use the App for any unlawful, harmful, or malicious purpose.</p>
+
+        <h3>7. Limitation of Liability</h3>
+        <p>To the fullest extent permitted by law, Brain Rot Meter and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the App.</p>
+
+        <h3>8. Third-Party Services</h3>
+        <p>The App interacts with third-party platforms (Instagram, YouTube) via Accessibility Services. We are not responsible for any changes made by these platforms that may affect App functionality. We are not affiliated with or endorsed by Meta, Google, or any other third party.</p>
+
+        <h3>9. Modifications to the Service</h3>
+        <p>We reserve the right to update these Terms at any time. Continued use of the App after changes constitutes acceptance of the revised Terms. We will indicate the effective date of updates at the top of this document.</p>
+
+        <h3>10. Termination</h3>
+        <p>We may terminate or restrict your access to the App at any time, for any reason, without notice, if we believe you have violated these Terms or applicable law.</p>
+
+        <h3>11. Contact Information</h3>
+        <p>For any questions about these Terms, contact us at: <a href="mailto:legal@brainrotmeter.app">legal@brainrotmeter.app</a></p>
+
+        <h3>12. Governing Law</h3>
+        <p>These Terms shall be governed by and construed in accordance with applicable law. Any disputes shall be resolved in the jurisdiction where the developer is based, unless prohibited by local law.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">🧠 Brain Rot Meter</div>
+      <p class="footer-tagline">Count Every Reel. Watch Your Brain Rot.</p>
+      <nav class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms &amp; Conditions</a>
+        <a href="mailto:hello@brainrotmeter.app">Contact</a>
+      </nav>
+      <div class="footer-bottom">
+        <span>v1.0.0</span>
+        <span>·</span>
+        <span>© 2025 Brain Rot Meter. All rights reserved.</span>
+        <span>·</span>
+        <span>Not affiliated with Meta or Google.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
