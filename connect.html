@@ -117,13 +117,7 @@
         <span id="code">------</span>
       </div>
 
-      <a
-        class="btn"
-        id="open-app-btn"
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="btn" id="open-app-btn" href="#" onclick="openInApp(event)">
         🚀 Open in App
       </a>
 
@@ -174,21 +168,38 @@
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
       const codeNode = document.getElementById("code");
-      const openAppBtn = document.getElementById("open-app-btn");
       const host = "ramascript.github.io";
       const path = "/brain-rot-meter/connect";
       const packageName = "com.ramascript.brainrotmeter";
-      const fallbackUrl = encodeURIComponent(
-        "https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter",
-      );
+      const fallbackUrl =
+        "https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter";
+
+      function buildIntentUrl(codeValue) {
+        const query = codeValue ? `?code=${encodeURIComponent(codeValue)}` : "";
+        return `intent://${host}${path}${query}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${encodeURIComponent(fallbackUrl)};end`;
+      }
+
+      function openInApp(event) {
+        event.preventDefault();
+        const intentUrl = buildIntentUrl(code);
+        const start = Date.now();
+        const fallbackTimer = setTimeout(() => {
+          window.location.href = fallbackUrl;
+        }, 1200);
+
+        window.location.href = intentUrl;
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            clearTimeout(fallbackTimer);
+          }
+        });
+      }
 
       if (code) {
-        const encodedCode = encodeURIComponent(code);
         codeNode.textContent = code.toUpperCase();
-        openAppBtn.href = `intent://${host}${path}?code=${encodedCode}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
       } else {
         codeNode.textContent = "NOT PROVIDED";
-        openAppBtn.href = `intent://${host}${path}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
       }
     </script>
   </body>
