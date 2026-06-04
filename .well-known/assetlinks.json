@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ramascript.brainrotmeter",
+      "sha256_cert_fingerprints": [
+        "08:EE:08:E1:82:6C:45:1E:26:86:B3:0B:8A:16:00:D3:13:F0:23:39:E2:D9:B2:46:A0:1F:1B:15:50:2D:79:6F"
+      ]
+    }
+  }
+]

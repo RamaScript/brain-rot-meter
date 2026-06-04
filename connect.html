@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect on Brain Rot Meter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: #0d0a06;
+        color: #f5e6c8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
+      .card {
+        background: #1a1208;
+        border: 1px solid #2a1f10;
+        border-radius: 24px;
+        padding: 48px 32px;
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+      }
+      .emoji {
+        font-size: 64px;
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      p {
+        color: #b8a088;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      .code-box {
+        background: #2a1f10;
+        border-radius: 14px;
+        padding: 16px 24px;
+        margin-bottom: 24px;
+      }
+      .code-box span {
+        font-size: 32px;
+        font-weight: 900;
+        color: #c4873a;
+        letter-spacing: 6px;
+      }
+      .code-box .label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #b8a088;
+        margin-bottom: 8px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #c4873a;
+        color: #0d0a06;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 14px 32px;
+        border-radius: 16px;
+        margin-bottom: 16px;
+        transition: opacity 0.2s;
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+      .steps {
+        text-align: left;
+        margin-top: 24px;
+      }
+      .step {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #b8a088;
+      }
+      .step-num {
+        background: #c4873a20;
+        color: #c4873a;
+        border-radius: 8px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="emoji">🧠</div>
+      <h1>Connect on Brain Rot Meter</h1>
+      <p>A friend wants to connect with you!</p>
+
+      <div class="code-box">
+        <div class="label">Friend Code</div>
+        <span id="code">------</span>
+      </div>
+
+      <a
+        class="btn"
+        href="https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter"
+      >
+        📲 Get the App
+      </a>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>Install the app from Play Store</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>Open the app and go to Friends</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>Enter the code above or tap this link again</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      if (code) {
+        document.getElementById("code").textContent = code.toUpperCase();
+      }
+    </script>
+  </body>
+</html>
