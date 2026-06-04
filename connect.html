@@ -168,6 +168,7 @@
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
       const codeNode = document.getElementById("code");
+      const openAppBtn = document.getElementById("open-app-btn");
       const host = "ramascript.github.io";
       const path = "/brain-rot-meter/connect";
       const packageName = "com.ramascript.brainrotmeter";
@@ -179,10 +180,12 @@
         return `intent://${host}${path}${query}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${encodeURIComponent(fallbackUrl)};end`;
       }
 
+      const intentUrl = buildIntentUrl(code);
+      openAppBtn.href = intentUrl;
+
       function openInApp(event) {
         event.preventDefault();
-        const intentUrl = buildIntentUrl(code);
-        const start = Date.now();
+
         const fallbackTimer = setTimeout(() => {
           window.location.href = fallbackUrl;
         }, 1200);
