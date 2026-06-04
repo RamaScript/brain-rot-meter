@@ -119,23 +119,53 @@
 
       <a
         class="btn"
+        id="open-app-btn"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🚀 Open in App
+      </a>
+
+      <a
+        class="btn"
         href="https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         📲 Get the App
       </a>
 
+      <p
+        style="
+          color: #b8a088;
+          margin: 0 0 24px;
+          font-size: 14px;
+          line-height: 1.5;
+        "
+      >
+        If the app is installed, tap “Open in App”. If not, use “Get the App”
+        first.
+      </p>
+
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <div>Install the app from Play Store</div>
+          <div>Install the app from Play Store if it is not installed.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <div>Open the app and go to Friends</div>
+          <div>
+            Tap “Open in App” to open the friend code directly in Brain Rot
+            Meter.
+          </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div>Enter the code above or tap this link again</div>
+          <div>
+            Enter the code above if needed, or reopen this link after
+            installation.
+          </div>
         </div>
       </div>
     </div>
@@ -143,8 +173,22 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
+      const codeNode = document.getElementById("code");
+      const openAppBtn = document.getElementById("open-app-btn");
+      const host = "ramascript.github.io";
+      const path = "/brain-rot-meter/connect";
+      const packageName = "com.ramascript.brainrotmeter";
+      const fallbackUrl = encodeURIComponent(
+        "https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter",
+      );
+
       if (code) {
-        document.getElementById("code").textContent = code.toUpperCase();
+        const encodedCode = encodeURIComponent(code);
+        codeNode.textContent = code.toUpperCase();
+        openAppBtn.href = `intent://${host}${path}?code=${encodedCode}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
+      } else {
+        codeNode.textContent = "NOT PROVIDED";
+        openAppBtn.href = `intent://${host}${path}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
       }
     </script>
   </body>
