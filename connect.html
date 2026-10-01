@@ -91,6 +91,7 @@
         stroke-linejoin: round;
         fill: none;
         flex-shrink: 0;
+        overflow: visible;
       }
       .hgi-sm { width: 16px; height: 16px; }
       .hgi-md { width: 22px; height: 22px; }
@@ -425,29 +426,30 @@
     </style>
   </head>
   <body>
-    <!-- Hugeicons master SVG defs -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <!-- Hugeicons master SVG defs -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
       <defs>
-        <g id="hgi-user">
+        <symbol id="hgi-user" viewBox="0 0 24 24">
           <circle cx="12" cy="8" r="3.5" />
-          <path d="M6 19c0-3 2.7-5 6-5s6 2 6 5" />
-        </g>
-        <g id="hgi-copy">
-          <path d="M8 4h10a2 2 0 012 2v10M16 8H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V10a2 2 0 00-2-2z" />
-        </g>
-        <g id="hgi-open-in-new">
-          <path d="M12 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-5M14 5h5v5M10 14L19 5" />
-        </g>
-        <g id="hgi-google-play">
-          <path d="M5 3.5l11.5 8.5L5 20.5V3.5z" stroke-linejoin="round" />
-          <path d="M5 3.5l8.5 8.5M5 20.5l8.5-8.5" />
-        </g>
-        <g id="hgi-check">
-          <path d="M5 12l5 5L19 7" />
-        </g>
-        <g id="hgi-arrow-left">
-          <path d="M15 6l-6 6 6 6" />
-        </g>
+          <path d="M6 19c0-3 2.7-5 6-5s6 2 6 5" stroke-linecap="round" />
+        </symbol>
+        <symbol id="hgi-copy" viewBox="0 0 24 24">
+          <rect x="8.5" y="4.5" width="11" height="13" rx="2" />
+          <path d="M4.5 8.5v10a2 2 0 002 2h10" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="hgi-open-in-new" viewBox="0 0 24 24">
+          <path d="M12 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-5M14 5h5v5M10 14L19 5" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="hgi-google-play" viewBox="0 0 24 24">
+          <path d="M5 3.5L19 12L5 20.5V3.5Z" stroke-linejoin="round" />
+          <path d="M5 3.5L14 12M5 20.5L14 12" />
+        </symbol>
+        <symbol id="hgi-check" viewBox="0 0 24 24">
+          <path d="M4.5 12.5l5 5L19.5 6.5" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="hgi-arrow-left" viewBox="0 0 24 24">
+          <path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
       </defs>
     </svg>
 
@@ -464,7 +466,7 @@
       <!-- Dynamic Inviter Preview -->
       <div class="inviter-card" id="inviter-card">
         <div class="inviter-avatar" id="inviter-avatar">
-          <svg class="hgi hgi-md"><use href="#hgi-user"></use></svg>
+          <svg class="hgi hgi-md" viewBox="0 0 24 24"><use href="#hgi-user"></use></svg>
         </div>
         <div class="inviter-info">
           <div class="inviter-name" id="inviter-name">Friend</div>
@@ -479,7 +481,7 @@
         <div class="label">Friend Code</div>
         <span class="code-display" id="code">------</span>
         <button class="copy-btn" id="copy-btn" onclick="copyCode()">
-          <svg class="hgi hgi-sm"><use href="#hgi-copy"></use></svg>
+          <svg class="hgi hgi-sm" viewBox="0 0 24 24"><use href="#hgi-copy"></use></svg>
           <span>Copy Code</span>
         </button>
       </div>
@@ -487,7 +489,7 @@
       <!-- Actions -->
       <div class="actions">
         <a class="btn btn-primary" id="open-app-btn" href="#" onclick="openInApp(event)">
-          <svg class="hgi"><use href="#hgi-open-in-new"></use></svg>
+          <svg class="hgi" viewBox="0 0 24 24"><use href="#hgi-open-in-new"></use></svg>
           <span>Open in Brain Rot Meter</span>
         </a>
         <a
@@ -497,7 +499,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg class="hgi"><use href="#hgi-google-play"></use></svg>
+          <svg class="hgi" viewBox="0 0 24 24"><use href="#hgi-google-play"></use></svg>
           <span>Get on Google Play</span>
         </a>
       </div>
@@ -520,13 +522,13 @@
       </div>
 
       <a href="index.html" class="back-home">
-        <svg class="hgi hgi-sm"><use href="#hgi-arrow-left"></use></svg>
+        <svg class="hgi hgi-sm" viewBox="0 0 24 24"><use href="#hgi-arrow-left"></use></svg>
         <span>Back to Brain Rot Meter Home</span>
       </a>
     </div>
 
     <div id="toast">
-      <svg class="hgi hgi-sm" style="color: #4ade80;"><use href="#hgi-check"></use></svg>
+      <svg class="hgi hgi-sm" style="color: #4ade80;" viewBox="0 0 24 24"><use href="#hgi-check"></use></svg>
       <span id="toast-text">Copied to clipboard!</span>
     </div>
 

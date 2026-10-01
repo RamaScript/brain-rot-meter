@@ -79,6 +79,7 @@ button { font-family: inherit; }
   stroke-linejoin: round;
   fill: none;
   flex-shrink: 0;
+  overflow: visible;
 }
 
 .hgi-sm { width: 16px; height: 16px; }
