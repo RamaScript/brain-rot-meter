@@ -1629,6 +1629,120 @@ section {
   text-decoration: underline;
 }
 
+/* ── Creator / About Section ── */
+.creator-section {
+  padding: 6rem 2rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.creator-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.8rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+}
+
+.creator-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+}
+
+.creator-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+.creator-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.creator-bio {
+  flex: 1;
+}
+
+.creator-bio h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.creator-role {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.creator-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.creator-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.creator-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  transition: all 0.2s;
+}
+
+.creator-link:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .creator-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  .creator-links {
+    justify-content: center;
+  }
+}
+
 /* ── FOOTER ── */
 .site-footer {
   padding: 4rem 2rem 3rem;
