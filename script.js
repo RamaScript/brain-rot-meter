@@ -1,20 +1,19 @@
-/* =============================================
+/* ==========================================================================
    BRAIN ROT METER — script.js
-   Dynamic 10-Stage Simulator · Hugeicons Integration · Interactive UX
-   ============================================= */
+   Dynamic Simulator · Interactive 10 Stages Spotlight · Carousel · FAQ
+   ========================================================================== */
 
 'use strict';
 
-// ── Particles Canvas ──────────────────────────
+// ── Particle Canvas Animation ──────────────────────────
 (function initParticles() {
   const canvas = document.getElementById('particles-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
   let W, H, particles;
-
-  const COLORS = ['#8B4513', '#C4873A', '#F4D7A1', '#FFC98B', '#a0522d'];
-  const COUNT = window.innerWidth < 768 ? 35 : 70;
+  const COLORS = ['#F59E0B', '#FBBF24', '#D97706', '#EA580C'];
+  const COUNT = window.innerWidth < 768 ? 25 : 55;
 
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -25,10 +24,10 @@
     return {
       x:     Math.random() * W,
       y:     Math.random() * H,
-      vx:    (Math.random() - 0.5) * 0.35,
-      vy:    (Math.random() - 0.5) * 0.35 - 0.12,
-      r:     Math.random() * 2 + 0.6,
-      alpha: Math.random() * 0.45 + 0.1,
+      vx:    (Math.random() - 0.5) * 0.3,
+      vy:    (Math.random() - 0.5) * 0.3 - 0.1,
+      r:     Math.random() * 1.8 + 0.6,
+      alpha: Math.random() * 0.35 + 0.08,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
     };
   }
@@ -67,7 +66,7 @@
 })();
 
 
-// ── Navbar Scroll State & Mobile Menu ─────────
+// ── Navbar Scroll & Mobile Toggle ──────────────────────
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
   const toggle = document.getElementById('nav-toggle');
@@ -91,7 +90,6 @@
       }
     });
 
-    // Close menu when a link is clicked
     links.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         links.classList.remove('open');
@@ -107,141 +105,277 @@
 })();
 
 
-// ── Hero 10-Stage Brain Cycle & Simulator ─────
-(function initHeroBrain() {
-  const brainImg    = document.getElementById('hero-brain-img');
-  const heroCounter = document.getElementById('hero-counter');
-  const stageLabel  = document.getElementById('stage-label');
-  const stageSub    = document.getElementById('stage-sub');
-  const brainGlow   = document.getElementById('hero-brain-glow');
+// ── 10 Brain Stages Master Data ────────────────────────
+const STAGES_DATA = [
+  {
+    num: 1,
+    name: 'Perfectly Healthy',
+    range: '0–10 reels',
+    tierText: 'STAGE 01 OF 10 · 0–10 REELS TODAY',
+    desc: 'Your brain is thriving. Natural focus is intact, attention spans are long, and cognitive vitality is at its peak. Keep it up!',
+    count: 0,
+    img: 'assets/brains/stage1.png',
+    color: '#22C55E',
+    halo: 'rgba(34, 197, 94, 0.4)',
+    percent: 10
+  },
+  {
+    num: 2,
+    name: 'Slightly Distracted',
+    range: '11–25 reels',
+    tierText: 'STAGE 02 OF 10 · 11–25 REELS TODAY',
+    desc: 'A few reels won’t hurt... probably. Minor dopamine craving begins, but work concentration remains recoverable.',
+    count: 18,
+    img: 'assets/brains/stage2.png',
+    color: '#4ADE80',
+    halo: 'rgba(74, 222, 128, 0.4)',
+    percent: 20
+  },
+  {
+    num: 3,
+    name: 'Brain Fog',
+    range: '26–50 reels',
+    tierText: 'STAGE 03 OF 10 · 26–50 REELS TODAY',
+    desc: 'The brain fog has started rolling in. Reading long sentences requires rereading, and short-term working memory blurs.',
+    count: 38,
+    img: 'assets/brains/stage3.png',
+    color: '#FACC15',
+    halo: 'rgba(250, 204, 21, 0.4)',
+    percent: 30
+  },
+  {
+    num: 4,
+    name: 'Sleepy Mode',
+    range: '51–75 reels',
+    tierText: 'STAGE 04 OF 10 · 51–75 REELS TODAY',
+    desc: 'Your attention span is getting sleepy. Heavy eyelids, glazed stare, and involuntary thumb swipes replace conscious browsing.',
+    count: 65,
+    img: 'assets/brains/stage4.png',
+    color: '#F59E0B',
+    halo: 'rgba(245, 158, 11, 0.4)',
+    percent: 40
+  },
+  {
+    num: 5,
+    name: 'Overstimulated',
+    range: '76–100 reels',
+    tierText: 'STAGE 05 OF 10 · 76–100 REELS TODAY',
+    desc: 'Too much dopamine, not enough focus. Your mind jumps between fragmented thoughts every 3 seconds.',
+    count: 90,
+    img: 'assets/brains/stage5.png',
+    color: '#FB923C',
+    halo: 'rgba(251, 146, 60, 0.45)',
+    percent: 50
+  },
+  {
+    num: 6,
+    name: 'Fried',
+    range: '101–150 reels',
+    tierText: 'STAGE 06 OF 10 · 101–150 REELS TODAY',
+    desc: 'Officially fried. Concentration unavailable. You close Instagram only to immediately tap and reopen it by reflex.',
+    count: 130,
+    img: 'assets/brains/stage6.png',
+    color: '#EA580C',
+    halo: 'rgba(234, 88, 12, 0.45)',
+    percent: 60
+  },
+  {
+    num: 7,
+    name: 'Damaged',
+    range: '151–250 reels',
+    tierText: 'STAGE 07 OF 10 · 151–250 REELS TODAY',
+    desc: 'Brain damage detected. Touching grass recommended immediately. Severe dopamine burnout and time blindness in effect.',
+    count: 210,
+    img: 'assets/brains/stage7.png',
+    color: '#EF4444',
+    halo: 'rgba(239, 68, 68, 0.5)',
+    percent: 70
+  },
+  {
+    num: 8,
+    name: 'Rotting',
+    range: '251–400 reels',
+    tierText: 'STAGE 08 OF 10 · 251–400 REELS TODAY',
+    desc: 'The rot is spreading rapidly. Half a workday spent watching strangers dance and loop 7-second audio clips.',
+    count: 340,
+    img: 'assets/brains/stage8.png',
+    color: '#DC2626',
+    halo: 'rgba(220, 38, 38, 0.55)',
+    percent: 80
+  },
+  {
+    num: 9,
+    name: 'Critical',
+    range: '401–600 reels',
+    tierText: 'STAGE 09 OF 10 · 401–600 REELS TODAY',
+    desc: 'Critical condition. Seek sunlight immediately. Hours have evaporated, phone is boiling hot, eyes are dry and stinging.',
+    count: 520,
+    img: 'assets/brains/stage9.png',
+    color: '#E11D48',
+    halo: 'rgba(225, 29, 72, 0.55)',
+    percent: 90
+  },
+  {
+    num: 10,
+    name: 'Dead Brain',
+    range: '601+ reels',
+    tierText: 'STAGE 10 OF 10 · 601+ REELS TODAY',
+    desc: 'Brain status: deceased. Scroll status: active. Consciousness uploaded. You are the content; the content is you.',
+    count: 720,
+    img: 'assets/brains/stage10.png',
+    color: '#A855F7',
+    halo: 'rgba(168, 85, 247, 0.6)',
+    percent: 100
+  },
+];
 
-  if (!brainImg || !heroCounter || !stageLabel) return;
+// Preload stage artwork to avoid flicker
+STAGES_DATA.forEach(s => {
+  const im = new Image();
+  im.src = s.img;
+});
 
-  const stages = [
-    { num: 1,  label: 'Perfectly Healthy', count: 0,   img: 'assets/brains/stage1.png',  range: '0–10 reels today',   glow: 'rgba(76, 175, 80, 0.45)',   color: '#4CAF50' },
-    { num: 2,  label: 'Slightly Distracted', count: 18, img: 'assets/brains/stage2.png', range: '11–25 reels today',  glow: 'rgba(102, 187, 106, 0.45)', color: '#66BB6A' },
-    { num: 3,  label: 'Brain Fog',          count: 38,  img: 'assets/brains/stage3.png', range: '26–50 reels today',  glow: 'rgba(253, 216, 53, 0.45)',  color: '#FDD835' },
-    { num: 4,  label: 'Sleepy Mode',        count: 65,  img: 'assets/brains/stage4.png', range: '51–75 reels today',  glow: 'rgba(255, 179, 0, 0.45)',   color: '#FFB300' },
-    { num: 5,  label: 'Overstimulated',     count: 90,  img: 'assets/brains/stage5.png', range: '76–100 reels today', glow: 'rgba(251, 140, 0, 0.5)',    color: '#FB8C00' },
-    { num: 6,  label: 'Fried',              count: 130, img: 'assets/brains/stage6.png', range: '101–150 reels today', glow: 'rgba(244, 81, 30, 0.5)',   color: '#F4511E' },
-    { num: 7,  label: 'Damaged',            count: 210, img: 'assets/brains/stage7.png', range: '151–250 reels today', glow: 'rgba(229, 57, 53, 0.55)',  color: '#E53935' },
-    { num: 8,  label: 'Rotting',            count: 340, img: 'assets/brains/stage8.png', range: '251–400 reels today', glow: 'rgba(211, 47, 47, 0.6)',   color: '#D32F2F' },
-    { num: 9,  label: 'Critical',           count: 520, img: 'assets/brains/stage9.png', range: '401–600 reels today', glow: 'rgba(194, 24, 91, 0.6)',   color: '#C2185B' },
-    { num: 10, label: 'Dead Brain',         count: 720, img: 'assets/brains/stage10.png', range: '601+ reels today',  glow: 'rgba(156, 39, 176, 0.65)', color: '#9C27B0' },
-  ];
 
-  // Preload stage artwork to guarantee instantaneous transitions
-  stages.forEach(s => {
-    const im = new Image();
-    im.src = s.img;
-  });
+// ── Hero Simulator Engine ──────────────────────────────
+(function initSimulator() {
+  const brainImg    = document.getElementById('sim-brain-img');
+  const counterEl   = document.getElementById('sim-counter');
+  const stageNameEl = document.getElementById('sim-stage-name');
+  const stageRangeEl= document.getElementById('sim-stage-range');
+  const haloEl      = document.getElementById('sim-halo');
+  const scrubber    = document.getElementById('sim-scrubber');
+
+  if (!brainImg || !counterEl || !stageNameEl) return;
 
   let current = 0;
   let displayCount = 0;
   let counterInterval;
   let cycleTimer;
 
-  function animateCount(target) {
+  function animateCounter(target) {
     clearInterval(counterInterval);
-    const step = Math.max(1, Math.ceil(Math.abs(target - displayCount) / 18));
+    const step = Math.max(1, Math.ceil(Math.abs(target - displayCount) / 16));
     counterInterval = setInterval(() => {
       if (Math.abs(displayCount - target) <= step) {
         displayCount = target;
-        heroCounter.textContent = displayCount;
+        counterEl.textContent = displayCount;
         clearInterval(counterInterval);
       } else {
         displayCount += displayCount < target ? step : -step;
-        heroCounter.textContent = displayCount;
+        counterEl.textContent = displayCount;
       }
     }, 25);
   }
 
-  function goToStage(idx) {
+  function applyStage(idx) {
     current = idx;
-    const s = stages[idx];
+    const s = STAGES_DATA[idx];
 
-    // Subtle breathing transition
-    brainImg.style.transform = 'scale(0.88)';
+    // Smooth image transition
+    brainImg.style.transform = 'scale(0.9)';
     brainImg.style.opacity   = '0.4';
 
     setTimeout(() => {
       brainImg.src = s.img;
-      brainImg.alt = `Stage ${s.num}: ${s.label}`;
+      brainImg.alt = `Stage ${s.num}: ${s.name}`;
       brainImg.style.transform = '';
       brainImg.style.opacity   = '1';
-    }, 180);
-
-    // Update Stage Label & Subtext
-    stageLabel.style.opacity = '0';
-    setTimeout(() => {
-      stageLabel.textContent = `Stage ${s.num} · ${s.label}`;
-      stageLabel.style.color = s.color;
-      stageLabel.style.opacity = '1';
-      if (stageSub) {
-        stageSub.textContent = s.range;
-      }
     }, 150);
 
-    // Update Ambient Glow Color
-    if (brainGlow) {
-      brainGlow.style.background = `radial-gradient(circle, ${s.glow} 0%, transparent 70%)`;
+    // Text updates
+    stageNameEl.textContent = `Stage ${s.num} · ${s.name}`;
+    stageNameEl.style.color = s.color;
+    if (stageRangeEl) stageRangeEl.textContent = s.range;
+
+    // Halo glow
+    if (haloEl) {
+      haloEl.style.background = `radial-gradient(circle, ${s.halo} 0%, transparent 70%)`;
     }
 
-    animateCount(s.count);
+    // Pips in scrubber
+    if (scrubber) {
+      const pips = scrubber.querySelectorAll('.scrub-pip');
+      pips.forEach((p, i) => {
+        p.classList.toggle('active', i === idx);
+      });
+    }
+
+    animateCounter(s.count);
   }
 
   function startCycle() {
     clearInterval(cycleTimer);
     cycleTimer = setInterval(() => {
-      current = (current + 1) % stages.length;
-      goToStage(current);
-    }, 2800);
+      current = (current + 1) % STAGES_DATA.length;
+      applyStage(current);
+    }, 3200);
   }
 
-  // Global selector for stage cards click
-  window.selectStage = function(idx) {
-    if (idx >= 0 && idx < stages.length) {
-      goToStage(idx);
-      // Restart timer so user has time to view the chosen stage
+  window.selectSimulatorStage = function(idx) {
+    if (idx >= 0 && idx < STAGES_DATA.length) {
+      applyStage(idx);
       startCycle();
-      const heroEl = document.getElementById('hero');
-      if (heroEl && window.innerWidth < 768) {
-        heroEl.scrollIntoView({ behavior: 'smooth' });
-      }
     }
   };
 
-  goToStage(0);
+  applyStage(0);
   startCycle();
 })();
 
 
-// ── Scroll Reveal ─────────────────────────────
-(function initReveal() {
-  const items = document.querySelectorAll('.reveal');
+// ── 10 Stages Spotlight Viewer ─────────────────────────
+(function initSpotlight() {
+  const spotlightImg  = document.getElementById('spotlight-img');
+  const spotlightHalo = document.getElementById('spotlight-halo');
+  const tierEl        = document.getElementById('spotlight-tier');
+  const nameEl        = document.getElementById('spotlight-name');
+  const descEl        = document.getElementById('spotlight-desc');
+  const fillEl        = document.getElementById('spotlight-fill');
+  const railCards     = document.querySelectorAll('.stage-pip-card');
 
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('visible'));
-    return;
-  }
+  if (!spotlightImg || !nameEl) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = parseInt(entry.target.dataset.delay || 0);
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-        observer.unobserve(entry.target);
-      }
+  window.setSpotlightStage = function(idx) {
+    if (idx < 0 || idx >= STAGES_DATA.length) return;
+    const s = STAGES_DATA[idx];
+
+    // Image transition
+    spotlightImg.style.transform = 'scale(0.92)';
+    spotlightImg.style.opacity   = '0.35';
+
+    setTimeout(() => {
+      spotlightImg.src = s.img;
+      spotlightImg.alt = s.name;
+      spotlightImg.style.transform = '';
+      spotlightImg.style.opacity   = '1';
+    }, 140);
+
+    // Text updates
+    if (tierEl) tierEl.textContent = s.tierText;
+    nameEl.textContent = s.name;
+    nameEl.style.color = s.color;
+    if (descEl) descEl.textContent = s.desc;
+
+    // Meter bar
+    if (fillEl) {
+      fillEl.style.width = `${s.percent}%`;
+      fillEl.style.background = s.color;
+    }
+
+    // Halo glow
+    if (spotlightHalo) {
+      spotlightHalo.style.background = `radial-gradient(circle, ${s.halo} 0%, transparent 70%)`;
+    }
+
+    // Rail cards active state
+    railCards.forEach((c, i) => {
+      c.classList.toggle('active', i === idx);
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  items.forEach(el => observer.observe(el));
+  };
 })();
 
 
-// ── Animated Stat Counters ────────────────────
+// ── Animated Stat Counters ─────────────────────────────
 (function initStatCounters() {
   const nums = document.querySelectorAll('.stat-num[data-target]');
 
@@ -251,7 +385,7 @@
       const el     = entry.target;
       const target = parseInt(el.dataset.target);
       const suffix = el.dataset.suffix || '';
-      const dur    = 1500;
+      const dur    = 1400;
       const start  = performance.now();
 
       function update(now) {
@@ -271,7 +405,7 @@
 })();
 
 
-// ── Phone Mockups Carousel ────────────────────
+// ── Phone Mockups Carousel ─────────────────────────────
 (function initCarousel() {
   const track  = document.getElementById('carousel-track');
   const prev   = document.getElementById('carousel-prev');
@@ -280,11 +414,10 @@
 
   if (!track) return;
 
-  const cards  = track.querySelectorAll('.phone-mockup');
-  const total  = cards.length;
-  let current  = 0;
+  const cards = track.querySelectorAll('.phone-mockup');
+  const total = cards.length;
+  let current = 0;
 
-  // Build dots
   dotsEl.innerHTML = '';
   cards.forEach((_, i) => {
     const d = document.createElement('button');
@@ -297,7 +430,7 @@
   function getCardWidth() {
     const card = cards[0];
     const style = getComputedStyle(track);
-    const gap   = parseInt(style.gap) || 24;
+    const gap = parseInt(style.gap) || 32;
     return card.offsetWidth + gap;
   }
 
@@ -314,7 +447,7 @@
   prev && prev.addEventListener('click', () => go(current - 1));
   next && next.addEventListener('click', () => go(current + 1));
 
-  // Touch swipe support
+  // Touch swipes
   let touchStartX = 0;
   track.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
@@ -341,7 +474,7 @@
 })();
 
 
-// ── FAQ Accordion ─────────────────────────────
+// ── FAQ Accordion ──────────────────────────────────────
 (function initFAQ() {
   const items = document.querySelectorAll('.faq-item');
 
@@ -354,7 +487,6 @@
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
 
-      // Close all other items
       items.forEach(i => {
         i.classList.remove('open');
         const ans = i.querySelector('.faq-answer');
@@ -370,20 +502,26 @@
 })();
 
 
-// ── Subtle Parallax on Desktop ────────────────
-(function initParallax() {
-  const heroContent = document.querySelector('.hero-content');
-  const heroVisual  = document.querySelector('.hero-visual');
+// ── Scroll Reveal Observer ─────────────────────────────
+(function initReveal() {
+  const items = document.querySelectorAll('.reveal');
 
-  if (!heroContent || window.innerWidth < 800) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
 
-  window.addEventListener('mousemove', (e) => {
-    const cx = window.innerWidth  / 2;
-    const cy = window.innerHeight / 2;
-    const dx = (e.clientX - cx) / cx;
-    const dy = (e.clientY - cy) / cy;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.delay || 0);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    heroContent.style.transform = `translate(${dx * -5}px, ${dy * -3}px)`;
-    heroVisual.style.transform  = `translate(${dx * 8}px, ${dy * 5}px)`;
-  });
+  items.forEach(el => observer.observe(el));
 })();

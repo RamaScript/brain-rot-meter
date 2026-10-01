@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brain Rot Meter – Count Every Reel. Watch Your Brain Rot.</title>
-  <meta name="description" content="Brain Rot Meter tracks every Instagram Reel and YouTube Short you watch. Watch your brain rot in real time across 10 stages. No fluff. Just the raw, rotting truth." />
+  <meta name="description" content="Brain Rot Meter monitors every Instagram Reel and YouTube Short you watch. Watch your neural mascot visually deteriorate across 10 raw stages in real time." />
   <meta name="keywords" content="brain rot, screen time, reels tracker, shorts tracker, digital wellness, android app" />
   <meta name="author" content="Brain Rot Meter" />
-  <meta name="theme-color" content="#070503" />
+  <meta name="theme-color" content="#060608" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Brain Rot Meter – Count Every Reel. Watch Your Brain Rot." />
-  <meta property="og:description" content="Track every Reel and Short you watch. Compare with friends in real time. See your brain rot across 10 stages." />
+  <meta property="og:description" content="Real-time reel counting. Floating overlay. 10 progressive brain health stages. Face your numbers." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://ramascript.com/brain-rot-meter/og-image.png" />
   <meta property="og:url" content="https://ramascript.com/brain-rot-meter/" />
@@ -19,16 +19,16 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brain Rot Meter" />
-  <meta name="twitter:description" content="Count Every Reel. Watch Your Brain Rot with Friends." />
+  <meta name="twitter:description" content="Real-Time Short-Form Video Tracking Across 10 Stages." />
 
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Hugeicons Master SVG Defs (stroke-width 1.8, round caps & joins, 24x24 viewBox) -->
+  <!-- Master Hugeicons SVG Definitions (24x24, 1.8px stroke width, rounded caps & joins) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
       <!-- Brain / Health -->
@@ -70,19 +70,19 @@
         <circle cx="20" cy="7" r="2" />
         <path d="M18.5 13.2c2 .3 3.5 1.8 3.5 3.8" />
       </g>
-      <!-- Key / Friend Code -->
+      <!-- Key / Code -->
       <g id="hgi-key">
         <path d="M14 10a4 4 0 10-7.3 2.3L2 17v4h4v-2h2v-2h2.7A4 4 0 0014 10zM10 8a1 1 0 110-2 1 1 0 010 2z" />
       </g>
-      <!-- Flame / Hot Streak / Leaderboard -->
+      <!-- Flame / Hot Streak -->
       <g id="hgi-flame">
         <path d="M12 22c-4.5 0-8-3.5-8-8 0-3.5 2.5-6.5 4.5-8.5.5-.5 1.3-.1 1.3.6 0 1.7 1 3.1 2.2 3.4 0-1.5.3-3.5 0-5.7-.2-.9.7-1.6 1.5-1.1 3 2.1 6.5 6.3 6.5 11.3 0 4.5-3.5 8-8 8z" />
       </g>
-      <!-- Swords / Head-to-Head -->
+      <!-- Swords / Battle -->
       <g id="hgi-swords">
         <path d="M14.5 17.5L3 6V3h3l11.5 11.5M17.5 14.5L21 18l-3 3-3.5-3.5M6 18l-3 3M18 6l3-3M9.5 14.5L14.5 9.5M3 18l3.5-3.5M21 6l-3.5 3.5" />
       </g>
-      <!-- Shield / Privacy -->
+      <!-- Shield / Security -->
       <g id="hgi-shield">
         <path d="M12 3c4 0 8 1.2 8 5 0 6.5-4 11.5-8 13-4-1.5-8-6.5-8-13 0-3.8 4-5 8-5zM9 11.5l2.2 2.2 3.8-4.2" />
       </g>
@@ -106,16 +106,6 @@
       <!-- Check -->
       <g id="hgi-check">
         <path d="M5 12l5 5L19 7" />
-      </g>
-      <!-- Check Circle -->
-      <g id="hgi-check-circle">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M8.5 12l2.5 2.5 4.5-5" />
-      </g>
-      <!-- User -->
-      <g id="hgi-user">
-        <circle cx="12" cy="8" r="3.5" />
-        <path d="M6 19c0-3 2.7-5 6-5s6 2 6 5" />
       </g>
       <!-- Arrow Right -->
       <g id="hgi-arrow-right">
@@ -142,18 +132,18 @@
         <rect x="3" y="6" width="15" height="12" rx="2.5" />
         <path d="M20 10v4M6 10h6" />
       </g>
-      <!-- Instagram Brand -->
+      <!-- Instagram -->
       <g id="hgi-instagram">
         <rect x="3" y="3" width="18" height="18" rx="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
       </g>
-      <!-- YouTube Brand -->
+      <!-- YouTube -->
       <g id="hgi-youtube">
         <rect x="2.5" y="4.5" width="19" height="15" rx="4" />
         <polygon points="10 8.5 15.5 12 10 15.5 10 8.5" fill="currentColor" stroke="none" />
       </g>
-      <!-- Google Play Brand -->
+      <!-- Google Play -->
       <g id="hgi-google-play">
         <path d="M5 3.5l11.5 8.5L5 20.5V3.5z" stroke-linejoin="round" />
         <path d="M5 3.5l8.5 8.5M5 20.5l8.5-8.5" />
@@ -167,28 +157,37 @@
         <rect x="5" y="10" width="14" height="11" rx="2" />
         <path d="M7 10V7a5 5 0 0110 0v3M12 14.5v2" />
       </g>
+      <!-- User -->
+      <g id="hgi-user">
+        <circle cx="12" cy="8" r="3.5" />
+        <path d="M6 19c0-3 2.7-5 6-5s6 2 6 5" />
+      </g>
     </defs>
   </svg>
 
-  <!-- Ambient Particle Canvas -->
+  <!-- Ambient Background Lighting -->
+  <div class="bg-ambient">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="assets/logo.png" alt="Brain Rot Meter Logo" class="nav-logo-img" />
+        <img src="assets/logo.png" alt="Brain Rot Meter" class="nav-logo-img" />
         <span class="nav-logo-text">Brain Rot Meter</span>
       </a>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
         <span></span><span></span><span></span>
       </button>
 
       <ul class="nav-links" id="nav-links">
         <li><a href="#features">Features</a></li>
-        <li><a href="#friends">Friends</a></li>
         <li><a href="#stages">10 Stages</a></li>
+        <li><a href="#friends">Friends</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#stats">Stats</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -201,7 +200,7 @@
         <li>
           <a href="#download" class="nav-cta">
             <svg class="hgi hgi-sm"><use href="#hgi-download"></use></svg>
-            <span>Download App</span>
+            <span>Download</span>
           </a>
         </li>
       </ul>
@@ -210,30 +209,27 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg-glow"></div>
     <div class="hero-content">
       <div class="hero-badge fade-in">
         <span class="pulse-indicator">
           <span class="pulse-dot"></span>
           <span class="pulse-ring"></span>
         </span>
-        <span class="hero-badge-text">Real-Time Rot Tracker Active</span>
+        <span>Real-Time Reels &amp; Shorts Tracking Active</span>
       </div>
 
       <h1 class="hero-headline fade-in delay-1">
-        Your Brain<br/>
-        <span class="glitch" data-text="Is Counting.">Is Counting.</span><br/>
-        <em>Are You?</em>
+        Count Every Reel.<br/>
+        Watch Your Brain <span class="accent">Rot in Real Time.</span>
       </h1>
 
       <p class="hero-sub fade-in delay-2">
-        Track every Instagram Reel and YouTube Short you watch.<br/>
-        Witness your mind deteriorate in real time through 10 visceral stages.
+        A lightweight Android overlay that counts every single swipe on Instagram Reels &amp; YouTube Shorts. Witness your mind deteriorate across 10 visceral stages.
       </p>
 
       <div class="hero-buttons fade-in delay-3">
-        <a href="#download" class="btn-primary">
-          <svg class="hgi"><use href="#hgi-download"></use></svg>
+        <a href="https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg class="hgi"><use href="#hgi-google-play"></use></svg>
           <span>Get Free App</span>
         </a>
         <a href="connect.html" class="btn-secondary">
@@ -253,514 +249,425 @@
         </span>
         <span class="hero-tag-item">
           <svg class="hgi hgi-sm"><use href="#hgi-widgets"></use></svg>
-          <span>Floating Overlay</span>
+          <span>Draggable Floating Pill</span>
         </span>
       </div>
     </div>
 
+    <!-- Interactive Stage Simulator Card -->
     <div class="hero-visual fade-in delay-2">
-      <div class="brain-container">
-        <div class="brain-mascot" id="brain-mascot">
-          <div class="brain-art-wrapper">
-            <img id="hero-brain-img" src="assets/brains/stage1.png" alt="Brain Stage Visual" class="hero-brain-img" />
+      <div class="simulator-card">
+        <div class="simulator-header">
+          <div class="sim-pill">
+            <svg class="hgi hgi-sm" style="color: var(--primary);"><use href="#hgi-zap"></use></svg>
+            <span>LIVE OVERLAY SIMULATOR</span>
           </div>
-          <div class="brain-glow" id="hero-brain-glow"></div>
-          <div class="brain-rings">
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
-          </div>
-        </div>
-
-        <div class="floating-counter" id="floating-counter">
-          <svg class="hgi hgi-zap-counter"><use href="#hgi-zap"></use></svg>
-          <span class="counter-num" id="hero-counter">0</span>
-          <span class="counter-unit">reels</span>
-        </div>
-
-        <div class="stage-info-pill">
-          <span class="stage-label" id="stage-label">Stage 1 · Perfectly Healthy</span>
-          <span class="stage-sub" id="stage-sub">0–10 reels today</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-scroll-hint">
-      <span>Scroll to face the truth</span>
-      <svg class="hgi hgi-sm"><use href="#hgi-chevron-down"></use></svg>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features" id="features">
-    <div class="section-header reveal">
-      <span class="section-tag">
-        <svg class="hgi hgi-sm"><use href="#hgi-sparkles"></use></svg>
-        Core Architecture
-      </span>
-      <h2>No Gimmicks. No Streaks.<br/><span class="accent">Just The Uncut Truth.</span></h2>
-    </div>
-
-    <div class="features-grid">
-      <!-- 1 -->
-      <div class="feature-card reveal" data-delay="0">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-zap"></use></svg>
-        </div>
-        <h3>Real-Time Counter</h3>
-        <p>Every swipe detected instantly via Android accessibility hooks. Zero guesswork, zero battery drain.</p>
-      </div>
-
-      <!-- 2 -->
-      <div class="feature-card reveal" data-delay="100">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-widgets"></use></svg>
-        </div>
-        <h3>Floating Overlay</h3>
-        <p>A persistent, draggable neon pill floats over Instagram and YouTube so you cannot ignore your rot count.</p>
-      </div>
-
-      <!-- 3 -->
-      <div class="feature-card reveal" data-delay="200">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-brain"></use></svg>
-        </div>
-        <h3>10 Brain Stages</h3>
-        <p>Watch your neural avatar degrade from Healthy to Fried to Dead Brain across 10 distinct, raw artwork tiers.</p>
-      </div>
-
-      <!-- 4 -->
-      <div class="feature-card reveal" data-delay="300">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-analytics"></use></svg>
-        </div>
-        <h3>Daily Analytics</h3>
-        <p>Comprehensive daily logs showing peak doomscroll hours, session lengths, and exact reel distribution.</p>
-      </div>
-
-      <!-- 5 -->
-      <div class="feature-card reveal" data-delay="400">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-calendar"></use></svg>
-        </div>
-        <h3>Weekly Breakdowns</h3>
-        <p>Monday morning reality checks. Track your 7-day trendlines and discover your worst doomscrolling streaks.</p>
-      </div>
-
-      <!-- 6 -->
-      <div class="feature-card reveal" data-delay="500">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-device-mobile"></use></svg>
-        </div>
-        <h3>Platform Breakdown</h3>
-        <p>Instagram Reels vs YouTube Shorts head-to-head comparison to see which platform is frying your focus faster.</p>
-      </div>
-
-      <!-- 7 -->
-      <div class="feature-card reveal" data-delay="600">
-        <div class="icon-wrap">
-          <svg class="hgi hgi-lg"><use href="#hgi-user-group"></use></svg>
-        </div>
-        <h3>Friends &amp; Rivals</h3>
-        <p>Pair up using private 6-character friend codes. Live leaderboards reveal who is rotting faster today in real time.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FRIENDS & RIVALRIES SHOWCASE -->
-  <section class="friends-showcase" id="friends">
-    <div class="section-header reveal">
-      <span class="section-tag">
-        <svg class="hgi hgi-sm"><use href="#hgi-user-group"></use></svg>
-        Accountability Network
-      </span>
-      <h2>Misery Loves Company.<br/><span class="accent">Rot Together.</span></h2>
-    </div>
-
-    <div class="friends-container">
-      <div class="friends-info reveal" data-delay="0">
-        <p class="hero-sub" style="text-align: left; margin-bottom: 1.5rem;">
-          Scrolling in isolation hides the damage. Connect with your friends to see who is doomscrolling deeper into the void. Peer accountability without toxic gamification.
-        </p>
-
-        <ul class="friends-benefits">
-          <li class="friends-benefit-item">
-            <div class="benefit-icon">
-              <svg class="hgi"><use href="#hgi-key"></use></svg>
-            </div>
-            <div>
-              <h4>Instant 6-Character Friend Codes</h4>
-              <p>No phone numbers, no contact scraping. Just generate a code or share a direct connect link.</p>
-            </div>
-          </li>
-
-          <li class="friends-benefit-item">
-            <div class="benefit-icon">
-              <svg class="hgi"><use href="#hgi-flame"></use></svg>
-            </div>
-            <div>
-              <h4>Live Rot Leaderboard</h4>
-              <p>Real-time ranking based on today's consumption. See your rivals climb from Healthy to Fried as the day unfolds.</p>
-            </div>
-          </li>
-
-          <li class="friends-benefit-item">
-            <div class="benefit-icon">
-              <svg class="hgi"><use href="#hgi-swords"></use></svg>
-            </div>
-            <div>
-              <h4>Side-by-Side Head-to-Head</h4>
-              <p>Compare 30-day averages, wasted minutes, and see whether Instagram or Shorts dominates their feed.</p>
-            </div>
-          </li>
-        </ul>
-
-        <div style="margin-top: 2rem;">
-          <a href="connect.html" class="btn-primary" style="display: inline-flex;">
-            <svg class="hgi"><use href="#hgi-user-group"></use></svg>
-            <span>Connect with a Friend</span>
-            <svg class="hgi"><use href="#hgi-arrow-right"></use></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="friends-card-mock reveal" data-delay="200">
-        <div class="friends-mock-header">
-          <div class="friends-mock-title">
-            <svg class="hgi hgi-flame" style="color: var(--secondary);"><use href="#hgi-flame"></use></svg>
-            <span>Rot Rankings Today</span>
-          </div>
-          <span class="mock-live-badge">
-            <span class="mock-live-dot"></span>
-            <span>LIVE SYNC</span>
+          <span class="live-pill">
+            <span class="pulse-dot"></span>
+            <span>SYNCED</span>
           </span>
         </div>
 
-        <!-- Row 1 -->
-        <div class="mock-friend-row highlight">
-          <div class="mock-friend-left">
-            <span class="mock-friend-rank">#1</span>
-            <div class="mock-friend-avatar avatar-danger">
-              <svg class="hgi"><use href="#hgi-flame"></use></svg>
-            </div>
-            <div>
-              <div class="mock-friend-name">Alex M. <span class="rival-tag">Rival</span></div>
-              <div class="mock-friend-stage">Stage 6 · Fried</div>
-            </div>
+        <div class="mascot-stage">
+          <div class="mascot-halo" id="sim-halo"></div>
+          <img id="sim-brain-img" src="assets/brains/stage1.png" alt="Brain Stage Visual" class="hero-brain-img" />
+        </div>
+
+        <div class="sim-stats-row">
+          <div class="sim-count-wrap">
+            <div class="sim-counter-num" id="sim-counter">0</div>
+            <div class="sim-counter-unit">reels watched today</div>
           </div>
-          <div>
-            <div class="mock-friend-count">164</div>
-            <span class="mock-friend-unit">reels</span>
+          <div class="sim-stage-info">
+            <div class="sim-stage-name" id="sim-stage-name">Stage 1 · Healthy</div>
+            <div class="sim-stage-range" id="sim-stage-range">0–10 reels</div>
           </div>
         </div>
 
-        <!-- Row 2 -->
-        <div class="mock-friend-row">
-          <div class="mock-friend-left">
-            <span class="mock-friend-rank">#2</span>
-            <div class="mock-friend-avatar avatar-warning">
-              <svg class="hgi"><use href="#hgi-zap"></use></svg>
-            </div>
-            <div>
-              <div class="mock-friend-name">You</div>
-              <div class="mock-friend-stage">Stage 5 · Overstimulated</div>
-            </div>
-          </div>
-          <div>
-            <div class="mock-friend-count">88</div>
-            <span class="mock-friend-unit">reels</span>
-          </div>
-        </div>
-
-        <!-- Row 3 -->
-        <div class="mock-friend-row">
-          <div class="mock-friend-left">
-            <span class="mock-friend-rank">#3</span>
-            <div class="mock-friend-avatar avatar-calm">
-              <svg class="hgi"><use href="#hgi-timer"></use></svg>
-            </div>
-            <div>
-              <div class="mock-friend-name">Sarah K.</div>
-              <div class="mock-friend-stage">Stage 4 · Sleepy Mode</div>
-            </div>
-          </div>
-          <div>
-            <div class="mock-friend-count">62</div>
-            <span class="mock-friend-unit">reels</span>
-          </div>
-        </div>
-
-        <div class="friends-mock-footer">
-          <svg class="hgi hgi-sm"><use href="#hgi-key"></use></svg>
-          <span>Share your code or open <a href="connect.html" style="color: var(--accent); text-decoration: underline;">connect.html</a></span>
+        <!-- Interactive 10-pip scrubber -->
+        <div class="sim-scrubber" id="sim-scrubber">
+          <button class="scrub-pip active" onclick="selectSimulatorStage(0)" aria-label="Stage 1"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(1)" aria-label="Stage 2"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(2)" aria-label="Stage 3"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(3)" aria-label="Stage 4"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(4)" aria-label="Stage 5"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(5)" aria-label="Stage 6"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(6)" aria-label="Stage 7"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(7)" aria-label="Stage 8"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(8)" aria-label="Stage 9"></button>
+          <button class="scrub-pip" onclick="selectSimulatorStage(9)" aria-label="Stage 10"></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how-it-works" id="how-it-works">
+  <!-- FEATURES BENTO GRID -->
+  <section id="features">
     <div class="section-header reveal">
       <span class="section-tag">
-        <svg class="hgi hgi-sm"><use href="#hgi-timer"></use></svg>
-        Pipeline
+        <svg class="hgi hgi-sm"><use href="#hgi-sparkles"></use></svg>
+        Architected For Clarity
       </span>
-      <h2>Five Steps To<br/><span class="accent">Brain Rot Awareness</span></h2>
+      <h2>Everything You Need.<br/><span class="accent">Nothing You Don't.</span></h2>
+      <p>Built for the modern attention deficit. No streaks to gamify your time, no XP to reward your scrolling. Just raw transparency.</p>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item reveal" data-delay="0">
-        <div class="timeline-num">
-          <div class="timeline-icon-box">
-            <svg class="hgi"><use href="#hgi-shield"></use></svg>
-          </div>
+    <div class="features-bento">
+      <!-- Bento 1: Large -->
+      <div class="bento-card bento-card-large reveal">
+        <div class="bento-icon-wrap">
+          <svg class="hgi hgi-lg"><use href="#hgi-zap"></use></svg>
         </div>
-        <div class="timeline-content">
-          <span class="timeline-step-tag">Step 01</span>
-          <h3>Grant Accessibility Access</h3>
-          <p>Enable the lightweight Accessibility Service so the app can detect reel swipes inside Instagram and YouTube without viewing personal data.</p>
-        </div>
+        <h3>Real-Time Accessibility Engine</h3>
+        <p>Utilizes native Android Accessibility APIs to detect vertical scrolls inside Instagram Reels and YouTube Shorts feeds. A 5-minute sliding deduplication window guarantees that scrolling back up does not generate false counts.</p>
       </div>
 
-      <div class="timeline-item reveal" data-delay="150">
-        <div class="timeline-num">
-          <div class="timeline-icon-box">
-            <svg class="hgi"><use href="#hgi-device-mobile"></use></svg>
-          </div>
+      <!-- Bento 2 -->
+      <div class="bento-card reveal">
+        <div class="bento-icon-wrap">
+          <svg class="hgi hgi-lg"><use href="#hgi-widgets"></use></svg>
         </div>
-        <div class="timeline-content">
-          <span class="timeline-step-tag">Step 02</span>
-          <h3>Launch Reels or Shorts</h3>
-          <p>Open Instagram or YouTube. The compact overlay pill instantly awakens the moment you enter short-form video feeds.</p>
-        </div>
+        <h3>Draggable Floating Overlay</h3>
+        <p>A compact neon pill hovers on your screen whenever you enter supported feeds. Drag it anywhere or tap to inspect your session metrics.</p>
       </div>
 
-      <div class="timeline-item reveal" data-delay="300">
-        <div class="timeline-num">
-          <div class="timeline-icon-box">
-            <svg class="hgi"><use href="#hgi-zap"></use></svg>
-          </div>
+      <!-- Bento 3 -->
+      <div class="bento-card reveal">
+        <div class="bento-icon-wrap">
+          <svg class="hgi hgi-lg"><use href="#hgi-brain"></use></svg>
         </div>
-        <div class="timeline-content">
-          <span class="timeline-step-tag">Step 03</span>
-          <h3>Every Swipe Increments</h3>
-          <p>Swipe up: +1. Swipe again: +1. Dedicated sliding-window deduplication ensures only genuine scrolls are registered.</p>
-        </div>
+        <h3>10 Neural Deterioration Stages</h3>
+        <p>Watch your neural avatar transform from pristine focus into absolute fried singularity as your reel count climbs throughout the day.</p>
       </div>
 
-      <div class="timeline-item reveal" data-delay="450">
-        <div class="timeline-num">
-          <div class="timeline-icon-box">
-            <svg class="hgi"><use href="#hgi-flame"></use></svg>
-          </div>
+      <!-- Bento 4: Large -->
+      <div class="bento-card bento-card-large reveal">
+        <div class="bento-icon-wrap">
+          <svg class="hgi hgi-lg"><use href="#hgi-analytics"></use></svg>
         </div>
-        <div class="timeline-content">
-          <span class="timeline-step-tag">Step 04</span>
-          <h3>Your Brain Visually Rots</h3>
-          <p>As numbers climb, your neural mascot transforms across 10 stages from pristine vitality down to total cognitive shutdown.</p>
-        </div>
+        <h3>Platform Comparison &amp; Peak Hour Charts</h3>
+        <p>Compare Instagram Reels versus YouTube Shorts to identify where your focus leaks most. Detailed hourly breakdowns show exact moments when doomscrolling takes over your day.</p>
       </div>
 
-      <div class="timeline-item reveal" data-delay="600">
-        <div class="timeline-num">
-          <div class="timeline-icon-box">
-            <svg class="hgi"><use href="#hgi-analytics"></use></svg>
-          </div>
+      <!-- Bento 5 -->
+      <div class="bento-card reveal">
+        <div class="bento-icon-wrap">
+          <svg class="hgi hgi-lg"><use href="#hgi-user-group"></use></svg>
         </div>
-        <div class="timeline-content">
-          <span class="timeline-step-tag">Step 05</span>
-          <h3>Analyze Your Damage</h3>
-          <p>Open the app anytime to inspect hourly distribution, 30-day graphs, and compare stats with your connected friends.</p>
+        <h3>Private 6-Character Friend Codes</h3>
+        <p>Zero phone numbers, zero contact syncing. Connect via anonymous 6-character tokens to compare daily counts and stages in real time.</p>
+      </div>
+
+      <!-- Bento 6 -->
+      <div class="bento-card reveal">
+        <div class="bento-icon-wrap">
+          <svg class="hgi hgi-lg"><use href="#hgi-shield"></use></svg>
         </div>
+        <h3>100% Local Device Privacy</h3>
+        <p>No video content is viewed, recorded, or sent to external servers. All counts stay on your device unless you opt into the friends leaderboard.</p>
       </div>
     </div>
   </section>
 
-  <!-- 10 BRAIN STAGES SECTION -->
-  <section class="brain-stages" id="stages">
+  <!-- 10 BRAIN STAGES SPOTLIGHT SHOWCASE -->
+  <section class="stages-section" id="stages">
     <div class="section-header reveal">
       <span class="section-tag">
         <svg class="hgi hgi-sm"><use href="#hgi-brain"></use></svg>
         10 Progression Stages
       </span>
-      <h2>How Rotten<br/><span class="accent">Are You Today?</span></h2>
-      <p style="color: var(--text-dim); max-width: 620px; margin: 1rem auto 0; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6;">
-        From thriving cognitive clarity to total dead-brain oblivion. Tap any stage card to test it in the interactive simulator above.
-      </p>
+      <h2>How Rotten Are You Today?</h2>
+      <p>Select any stage to inspect its neural condition, daily reel threshold, and symptom diagnosis.</p>
     </div>
 
-    <div class="stages-grid">
-      <!-- Stage 1 -->
-      <div class="stage-card reveal" data-stage="1" data-delay="0" onclick="selectStage(0)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 01</span>
-          <span class="stage-range">0–10 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s1">
-          <img src="assets/brains/stage1.png" alt="Stage 1: Perfectly Healthy" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Perfectly Healthy</h4>
-        <p class="stage-desc">Your brain is thriving. Keep it up!</p>
-        <div class="stage-bar"><div class="stage-fill fill-s1" style="width: 10%"></div></div>
+    <!-- Spotlight Stage Card -->
+    <div class="stages-spotlight reveal">
+      <div class="spotlight-visual">
+        <div class="spotlight-halo" id="spotlight-halo"></div>
+        <img id="spotlight-img" src="assets/brains/stage1.png" alt="Stage 1: Perfectly Healthy" class="spotlight-img" />
       </div>
 
-      <!-- Stage 2 -->
-      <div class="stage-card reveal" data-stage="2" data-delay="50" onclick="selectStage(1)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 02</span>
-          <span class="stage-range">11–25 reels</span>
+      <div class="spotlight-info">
+        <div class="spotlight-tier" id="spotlight-tier">STAGE 01 OF 10 · 0–10 REELS TODAY</div>
+        <h3 class="spotlight-name" id="spotlight-name">Perfectly Healthy</h3>
+        <p class="spotlight-desc" id="spotlight-desc">Your brain is thriving. Natural focus is intact, attention spans are long, and cognitive vitality is at its peak. Keep it up!</p>
+        
+        <div class="spotlight-meter-bar">
+          <div class="spotlight-meter-fill" id="spotlight-fill" style="width: 10%;"></div>
         </div>
-        <div class="stage-thumb-wrap glow-s2">
-          <img src="assets/brains/stage2.png" alt="Stage 2: Slightly Distracted" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Slightly Distracted</h4>
-        <p class="stage-desc">A few reels won’t hurt... probably.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s2" style="width: 20%"></div></div>
       </div>
+    </div>
 
-      <!-- Stage 3 -->
-      <div class="stage-card reveal" data-stage="3" data-delay="100" onclick="selectStage(2)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 03</span>
-          <span class="stage-range">26–50 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s3">
-          <img src="assets/brains/stage3.png" alt="Stage 3: Brain Fog" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Brain Fog</h4>
-        <p class="stage-desc">The brain fog has started rolling in.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s3" style="width: 30%"></div></div>
+    <!-- 10 Horizontal Stage Navigation Rail -->
+    <div class="stages-rail reveal">
+      <div class="stage-pip-card active" onclick="setSpotlightStage(0)">
+        <img src="assets/brains/stage1.png" alt="Stage 1" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S1 · 0-10</span>
+        <span class="stage-pip-name">Healthy</span>
       </div>
-
-      <!-- Stage 4 -->
-      <div class="stage-card reveal" data-stage="4" data-delay="150" onclick="selectStage(3)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 04</span>
-          <span class="stage-range">51–75 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s4">
-          <img src="assets/brains/stage4.png" alt="Stage 4: Sleepy Mode" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Sleepy Mode</h4>
-        <p class="stage-desc">Your attention span is getting sleepy.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s4" style="width: 40%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(1)">
+        <img src="assets/brains/stage2.png" alt="Stage 2" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S2 · 11-25</span>
+        <span class="stage-pip-name">Distracted</span>
       </div>
-
-      <!-- Stage 5 -->
-      <div class="stage-card reveal" data-stage="5" data-delay="200" onclick="selectStage(4)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 05</span>
-          <span class="stage-range">76–100 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s5">
-          <img src="assets/brains/stage5.png" alt="Stage 5: Overstimulated" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Overstimulated</h4>
-        <p class="stage-desc">Too much dopamine, not enough focus.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s5" style="width: 50%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(2)">
+        <img src="assets/brains/stage3.png" alt="Stage 3" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S3 · 26-50</span>
+        <span class="stage-pip-name">Brain Fog</span>
       </div>
-
-      <!-- Stage 6 -->
-      <div class="stage-card reveal" data-stage="6" data-delay="250" onclick="selectStage(5)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 06</span>
-          <span class="stage-range">101–150 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s6">
-          <img src="assets/brains/stage6.png" alt="Stage 6: Fried" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Fried</h4>
-        <p class="stage-desc">Officially fried. Concentration unavailable.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s6" style="width: 60%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(3)">
+        <img src="assets/brains/stage4.png" alt="Stage 4" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S4 · 51-75</span>
+        <span class="stage-pip-name">Sleepy</span>
       </div>
-
-      <!-- Stage 7 -->
-      <div class="stage-card reveal" data-stage="7" data-delay="300" onclick="selectStage(6)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 07</span>
-          <span class="stage-range">151–250 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s7">
-          <img src="assets/brains/stage7.png" alt="Stage 7: Damaged" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Damaged</h4>
-        <p class="stage-desc">Brain damage detected. Touching grass recommended.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s7" style="width: 70%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(4)">
+        <img src="assets/brains/stage5.png" alt="Stage 5" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S5 · 76-100</span>
+        <span class="stage-pip-name">Overstim</span>
       </div>
-
-      <!-- Stage 8 -->
-      <div class="stage-card reveal" data-stage="8" data-delay="350" onclick="selectStage(7)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 08</span>
-          <span class="stage-range">251–400 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s8">
-          <img src="assets/brains/stage8.png" alt="Stage 8: Rotting" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Rotting</h4>
-        <p class="stage-desc">The rot is spreading rapidly.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s8" style="width: 80%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(5)">
+        <img src="assets/brains/stage6.png" alt="Stage 6" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S6 · 101-150</span>
+        <span class="stage-pip-name">Fried</span>
       </div>
-
-      <!-- Stage 9 -->
-      <div class="stage-card reveal" data-stage="9" data-delay="400" onclick="selectStage(8)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 09</span>
-          <span class="stage-range">401–600 reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s9">
-          <img src="assets/brains/stage9.png" alt="Stage 9: Critical" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Critical</h4>
-        <p class="stage-desc">Critical condition. Seek sunlight immediately.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s9" style="width: 90%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(6)">
+        <img src="assets/brains/stage7.png" alt="Stage 7" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S7 · 151-250</span>
+        <span class="stage-pip-name">Damaged</span>
       </div>
-
-      <!-- Stage 10 -->
-      <div class="stage-card reveal" data-stage="10" data-delay="450" onclick="selectStage(9)">
-        <div class="stage-badge-top">
-          <span class="stage-tag">Stage 10</span>
-          <span class="stage-range">601+ reels</span>
-        </div>
-        <div class="stage-thumb-wrap glow-s10">
-          <img src="assets/brains/stage10.png" alt="Stage 10: Dead Brain" class="stage-thumb" loading="lazy" />
-        </div>
-        <h4 class="stage-name">Dead Brain</h4>
-        <p class="stage-desc">Brain status: deceased. Scroll status: active.</p>
-        <div class="stage-bar"><div class="stage-fill fill-s10" style="width: 100%"></div></div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(7)">
+        <img src="assets/brains/stage8.png" alt="Stage 8" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S8 · 251-400</span>
+        <span class="stage-pip-name">Rotting</span>
+      </div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(8)">
+        <img src="assets/brains/stage9.png" alt="Stage 9" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S9 · 401-600</span>
+        <span class="stage-pip-name">Critical</span>
+      </div>
+      <div class="stage-pip-card" onclick="setSpotlightStage(9)">
+        <img src="assets/brains/stage10.png" alt="Stage 10" class="stage-pip-thumb" />
+        <span class="stage-pip-num">S10 · 601+</span>
+        <span class="stage-pip-name">Dead Brain</span>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- FRIENDS & LEADERBOARD SECTION -->
+  <section class="friends-section" id="friends">
+    <div class="friends-grid">
+      <div class="friends-copy reveal">
+        <span class="section-tag">
+          <svg class="hgi hgi-sm"><use href="#hgi-user-group"></use></svg>
+          Accountability
+        </span>
+        <h2>Misery Loves Company.<br/><span class="accent">Compete With Friends.</span></h2>
+        <p>Scrolling in secret hides the damage. Pair with your inner circle to witness who is surrendering more hours to the algorithm.</p>
+
+        <div class="friends-perks">
+          <div class="perk-item">
+            <div class="perk-icon">
+              <svg class="hgi"><use href="#hgi-key"></use></svg>
+            </div>
+            <div>
+              <h4>Private 6-Character Codes</h4>
+              <p>Generate a private friend code in seconds. No email registration or phone number linking required.</p>
+            </div>
+          </div>
+
+          <div class="perk-item">
+            <div class="perk-icon">
+              <svg class="hgi"><use href="#hgi-flame"></use></svg>
+            </div>
+            <div>
+              <h4>Live Rot Leaderboards</h4>
+              <p>Rankings refresh in real time as reels are watched. Watch your friends transition through stages as the day progresses.</p>
+            </div>
+          </div>
+
+          <div class="perk-item">
+            <div class="perk-icon">
+              <svg class="hgi"><use href="#hgi-swords"></use></svg>
+            </div>
+            <div>
+              <h4>Head-to-Head Comparison</h4>
+              <p>Compare daily averages, 30-day totals, and inspect whether your friend is losing more hours to YouTube Shorts or Instagram Reels.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <a href="connect.html" class="btn-primary">
+            <svg class="hgi"><use href="#hgi-user-group"></use></svg>
+            <span>Open Friend Connect Portal</span>
+            <svg class="hgi"><use href="#hgi-arrow-right"></use></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Real Mock Leaderboard UI -->
+      <div class="leaderboard-mock reveal">
+        <div class="mock-top">
+          <div class="mock-title">
+            <svg class="hgi" style="color: var(--primary);"><use href="#hgi-flame"></use></svg>
+            <span>Rot Rankings Today</span>
+          </div>
+          <span class="live-pill">
+            <span class="pulse-dot"></span>
+            <span>LIVE SYNC</span>
+          </span>
+        </div>
+
+        <!-- Rank 1 -->
+        <div class="leader-row">
+          <div class="leader-left">
+            <span class="leader-rank">#1</span>
+            <div class="leader-avatar avatar-danger">
+              <svg class="hgi"><use href="#hgi-flame"></use></svg>
+            </div>
+            <div>
+              <div class="leader-name">Alex M. <span class="rival-badge">Rival</span></div>
+              <div class="leader-stage">Stage 6 · Fried</div>
+            </div>
+          </div>
+          <div>
+            <div class="leader-count">164</div>
+            <span class="leader-unit">reels</span>
+          </div>
+        </div>
+
+        <!-- Rank 2: Highlight -->
+        <div class="leader-row highlight">
+          <div class="leader-left">
+            <span class="leader-rank">#2</span>
+            <div class="leader-avatar avatar-warning">
+              <svg class="hgi"><use href="#hgi-zap"></use></svg>
+            </div>
+            <div>
+              <div class="leader-name">You</div>
+              <div class="leader-stage">Stage 5 · Overstimulated</div>
+            </div>
+          </div>
+          <div>
+            <div class="leader-count">88</div>
+            <span class="leader-unit">reels</span>
+          </div>
+        </div>
+
+        <!-- Rank 3 -->
+        <div class="leader-row">
+          <div class="leader-left">
+            <span class="leader-rank">#3</span>
+            <div class="leader-avatar avatar-calm">
+              <svg class="hgi"><use href="#hgi-timer"></use></svg>
+            </div>
+            <div>
+              <div class="leader-name">Sarah K.</div>
+              <div class="leader-stage">Stage 4 · Sleepy Mode</div>
+            </div>
+          </div>
+          <div>
+            <div class="leader-count">62</div>
+            <span class="leader-unit">reels</span>
+          </div>
+        </div>
+
+        <div class="leaderboard-footer">
+          <svg class="hgi hgi-sm"><use href="#hgi-key"></use></svg>
+          <span>Share code or test via <a href="connect.html" style="color: var(--accent); text-decoration: underline;">connect.html</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS PIPELINE -->
+  <section id="how-it-works">
+    <div class="section-header reveal">
+      <span class="section-tag">
+        <svg class="hgi hgi-sm"><use href="#hgi-timer"></use></svg>
+        Pipeline
+      </span>
+      <h2>Five Steps To Awareness</h2>
+      <p>A simple, zero-friction process built to deliver honest visibility into your digital habits.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal" data-delay="0">
+        <span class="step-badge">01</span>
+        <div class="step-icon-wrap">
+          <svg class="hgi"><use href="#hgi-shield"></use></svg>
+        </div>
+        <h3>Enable Service</h3>
+        <p>Grant standard Accessibility permissions so Brain Rot Meter can observe vertical feed scrolls inside Instagram and YouTube.</p>
+      </div>
+
+      <div class="step-card reveal" data-delay="80">
+        <span class="step-badge">02</span>
+        <div class="step-icon-wrap">
+          <svg class="hgi"><use href="#hgi-device-mobile"></use></svg>
+        </div>
+        <h3>Open Feeds</h3>
+        <p>The moment you launch Reels or Shorts, the subtle floating overlay wakes up automatically in the corner of your screen.</p>
+      </div>
+
+      <div class="step-card reveal" data-delay="160">
+        <span class="step-badge">03</span>
+        <div class="step-icon-wrap">
+          <svg class="hgi"><use href="#hgi-zap"></use></svg>
+        </div>
+        <h3>Count Increments</h3>
+        <p>Every swipe counts: +1 reel. Sliding-window logic filters out accidental quick taps and backward scrolls.</p>
+      </div>
+
+      <div class="step-card reveal" data-delay="240">
+        <span class="step-badge">04</span>
+        <div class="step-icon-wrap">
+          <svg class="hgi"><use href="#hgi-brain"></use></svg>
+        </div>
+        <h3>Brain Degrades</h3>
+        <p>As totals rise, your neural mascot transitions through 10 stages from Healthy down to Dead Brain. It resets at midnight.</p>
+      </div>
+
+      <div class="step-card reveal" data-delay="320">
+        <span class="step-badge">05</span>
+        <div class="step-icon-wrap">
+          <svg class="hgi"><use href="#hgi-analytics"></use></svg>
+        </div>
+        <h3>Face The Numbers</h3>
+        <p>Inspect hourly peaks, 30-day graphs, and hold yourself accountable alongside your connected friends.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS METRICS -->
   <section class="stats-section" id="stats">
     <div class="stats-grid">
       <div class="stat-item reveal" data-delay="0">
-        <div class="stat-icon-wrap">
+        <div class="stat-icon">
           <svg class="hgi"><use href="#hgi-zap"></use></svg>
         </div>
         <div class="stat-num" data-target="1200" data-suffix="+">0</div>
         <div class="stat-label">Reels Tracked Today</div>
       </div>
 
-      <div class="stat-item reveal" data-delay="150">
-        <div class="stat-icon-wrap">
+      <div class="stat-item reveal" data-delay="100">
+        <div class="stat-icon">
           <svg class="hgi"><use href="#hgi-timer"></use></svg>
         </div>
         <div class="stat-num" data-target="300" data-suffix="+">0</div>
         <div class="stat-label">Hours Reclaimed</div>
       </div>
 
-      <div class="stat-item reveal" data-delay="300">
-        <div class="stat-icon-wrap">
+      <div class="stat-item reveal" data-delay="200">
+        <div class="stat-icon">
           <svg class="hgi"><use href="#hgi-brain"></use></svg>
         </div>
         <div class="stat-num" data-target="10" data-suffix="">0</div>
         <div class="stat-label">Brain Health Stages</div>
       </div>
 
-      <div class="stat-item reveal" data-delay="450">
-        <div class="stat-icon-wrap">
+      <div class="stat-item reveal" data-delay="300">
+        <div class="stat-icon">
           <svg class="hgi"><use href="#hgi-trending-up"></use></svg>
         </div>
         <div class="stat-num" data-target="100" data-suffix="%">0</div>
@@ -770,139 +677,139 @@
   </section>
 
   <!-- SCREENSHOTS / CAROUSEL -->
-  <section class="screenshots" id="screenshots">
+  <section id="screenshots">
     <div class="section-header reveal">
       <span class="section-tag">
         <svg class="hgi hgi-sm"><use href="#hgi-device-mobile"></use></svg>
         Interface
       </span>
-      <h2>Crafted For<br/><span class="accent">Uncompromising Focus</span></h2>
+      <h2>Designed for Restraint</h2>
+      <p>A dark, high-contrast UI engineered to deliver reality checks without visual distractions.</p>
     </div>
 
-    <div class="carousel-container">
+    <div class="carousel-wrap">
       <div class="carousel-track" id="carousel-track">
-        <!-- Mockup 1: Home Screen -->
+        <!-- Mock 1: Home Screen -->
         <div class="phone-mockup">
-          <div class="phone-frame">
+          <div class="phone-shell">
             <div class="phone-screen screen-home">
-              <div class="mock-status-bar">
+              <div class="mock-topbar">
                 <span>9:41</span>
                 <svg class="hgi hgi-sm"><use href="#hgi-battery"></use></svg>
               </div>
-              <div class="mock-header">
+              <div class="mock-app-title">
                 <img src="assets/logo.png" alt="Logo" class="mock-logo" />
                 <span>Brain Rot Meter</span>
               </div>
-              <div class="mock-brain-visual">
-                <img src="assets/brains/stage3.png" alt="Brain Fog" class="mock-brain-img" />
+              <div class="mock-mascot-box">
+                <img src="assets/brains/stage3.png" alt="Brain Fog" class="mock-mascot-img" />
               </div>
-              <div class="mock-count">Today: <strong>47 reels</strong></div>
+              <div class="mock-reels-count">Today: <strong>47 reels</strong></div>
               <div class="mock-stage-badge">
-                <span class="mock-dot-warning"></span>
+                <span class="dot-s" style="background: #FACC15;"></span>
                 <span>Stage 3 · Brain Fog</span>
               </div>
-              <div class="mock-bar-wrap">
-                <div class="mock-bar"><div class="mock-bar-fill" style="width: 30%"></div></div>
+              <div class="mock-mini-bar">
+                <div class="mock-mini-fill" style="width: 30%;"></div>
               </div>
             </div>
           </div>
-          <div class="phone-label">Home Screen</div>
+          <span class="phone-caption">Home Screen</span>
         </div>
 
-        <!-- Mockup 2: Floating Overlay -->
+        <!-- Mock 2: Overlay -->
         <div class="phone-mockup">
-          <div class="phone-frame">
+          <div class="phone-shell">
             <div class="phone-screen screen-overlay">
-              <div class="mock-app-bg">
-                <svg class="hgi hgi-md" style="margin-bottom: 6px;"><use href="#hgi-instagram"></use></svg>
+              <div class="mock-insta-bg">
+                <svg class="hgi hgi-md"><use href="#hgi-instagram"></use></svg>
                 <span>Instagram Feed</span>
               </div>
-              <div class="mock-overlay-pill">
+              <div class="mock-float-pill">
                 <svg class="hgi hgi-sm"><use href="#hgi-zap"></use></svg>
                 <strong>23</strong>
               </div>
             </div>
           </div>
-          <div class="phone-label">Floating Counter</div>
+          <span class="phone-caption">Floating Overlay</span>
         </div>
 
-        <!-- Mockup 3: Stats Screen -->
+        <!-- Mock 3: Stats -->
         <div class="phone-mockup">
-          <div class="phone-frame">
+          <div class="phone-shell">
             <div class="phone-screen screen-stats">
-              <div class="mock-status-bar">
+              <div class="mock-topbar">
                 <span>9:41</span>
                 <svg class="hgi hgi-sm"><use href="#hgi-battery"></use></svg>
               </div>
-              <div class="mock-header">
+              <div class="mock-app-title">
                 <svg class="hgi hgi-sm"><use href="#hgi-analytics"></use></svg>
                 <span>Weekly Trends</span>
               </div>
-              <div class="mock-chart">
-                <div class="mock-bar-v" style="height: 35%"></div>
-                <div class="mock-bar-v" style="height: 65%"></div>
-                <div class="mock-bar-v" style="height: 50%"></div>
-                <div class="mock-bar-v" style="height: 85%"></div>
-                <div class="mock-bar-v" style="height: 40%"></div>
-                <div class="mock-bar-v" style="height: 75%"></div>
-                <div class="mock-bar-v" style="height: 55%"></div>
+              <div class="mock-barchart">
+                <div class="mock-col" style="height: 35%;"></div>
+                <div class="mock-col" style="height: 65%;"></div>
+                <div class="mock-col" style="height: 50%;"></div>
+                <div class="mock-col" style="height: 85%;"></div>
+                <div class="mock-col" style="height: 40%;"></div>
+                <div class="mock-col" style="height: 75%;"></div>
+                <div class="mock-col" style="height: 55%;"></div>
               </div>
-              <div class="mock-week">Mon — Sun Analysis</div>
-              <div class="mock-platform-split">
-                <span class="split-pill"><svg class="hgi hgi-sm"><use href="#hgi-instagram"></use></svg> 68%</span>
-                <span class="split-pill"><svg class="hgi hgi-sm"><use href="#hgi-youtube"></use></svg> 32%</span>
+              <div class="mock-platforms">
+                <span class="plat-tag"><svg class="hgi hgi-sm"><use href="#hgi-instagram"></use></svg> 68%</span>
+                <span class="plat-tag"><svg class="hgi hgi-sm"><use href="#hgi-youtube"></use></svg> 32%</span>
               </div>
             </div>
           </div>
-          <div class="phone-label">Stats &amp; Trends</div>
+          <span class="phone-caption">Statistics</span>
         </div>
 
-        <!-- Mockup 4: Stages Screen -->
+        <!-- Mock 4: Stages -->
         <div class="phone-mockup">
-          <div class="phone-frame">
+          <div class="phone-shell">
             <div class="phone-screen screen-stages">
-              <div class="mock-status-bar">
+              <div class="mock-topbar">
                 <span>9:41</span>
                 <svg class="hgi hgi-sm"><use href="#hgi-battery"></use></svg>
               </div>
-              <div class="mock-header">
+              <div class="mock-app-title">
                 <svg class="hgi hgi-sm"><use href="#hgi-brain"></use></svg>
-                <span>Brain Health</span>
+                <span>Brain Stages</span>
               </div>
-              <div class="mock-stages-list">
-                <div class="mock-stage-row">
-                  <span class="stage-mini-dot color-s1"></span>
+              <div class="mock-stage-items">
+                <div class="mock-st-row">
+                  <span class="dot-s" style="background: #22c55e;"></span>
                   <span>Stage 1 · Healthy</span>
                 </div>
-                <div class="mock-stage-row">
-                  <span class="stage-mini-dot color-s2"></span>
+                <div class="mock-st-row">
+                  <span class="dot-s" style="background: #4ade80;"></span>
                   <span>Stage 2 · Distracted</span>
                 </div>
-                <div class="mock-stage-row active">
-                  <span class="stage-mini-dot color-s3"></span>
+                <div class="mock-st-row active">
+                  <span class="dot-s" style="background: #facc15;"></span>
                   <span>Stage 3 · Brain Fog</span>
                 </div>
-                <div class="mock-stage-row">
-                  <span class="stage-mini-dot color-s4"></span>
+                <div class="mock-st-row">
+                  <span class="dot-s" style="background: #f59e0b;"></span>
                   <span>Stage 4 · Sleepy</span>
                 </div>
-                <div class="mock-stage-row">
-                  <span class="stage-mini-dot color-s5"></span>
+                <div class="mock-st-row">
+                  <span class="dot-s" style="background: #fb923c;"></span>
                   <span>Stage 5 · Overstim</span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="phone-label">10 Stages Guide</div>
+          <span class="phone-caption">Stages Guide</span>
         </div>
       </div>
 
-      <div class="carousel-controls">
-        <button class="carousel-btn" id="carousel-prev" aria-label="Previous slide">
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Previous screenshot">
           <svg class="hgi"><use href="#hgi-chevron-left"></use></svg>
         </button>
         <div class="carousel-dots" id="carousel-dots"></div>
-        <button class="carousel-btn" id="carousel-next" aria-label="Next slide">
+        <button class="carousel-btn" id="carousel-next" aria-label="Next screenshot">
           <svg class="hgi"><use href="#hgi-chevron-right"></use></svg>
         </button>
       </div>
@@ -910,90 +817,77 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq" id="faq">
+  <section id="faq">
     <div class="section-header reveal">
       <span class="section-tag">
         <svg class="hgi hgi-sm"><use href="#hgi-shield"></use></svg>
-        Clarity
+        Transparency
       </span>
-      <h2>Frequently Asked<br/><span class="accent">Questions</span></h2>
+      <h2>Frequently Asked Questions</h2>
     </div>
 
-    <div class="faq-list">
-      <div class="faq-item reveal" data-delay="0">
+    <div class="faq-container">
+      <div class="faq-item reveal">
         <button class="faq-question">
           <span>What is Brain Rot Meter?</span>
           <span class="faq-icon"><svg class="hgi"><use href="#hgi-chevron-down"></use></svg></span>
         </button>
         <div class="faq-answer">
-          <p>Brain Rot Meter is an Android application that quantifies your short-form video consumption. It monitors Instagram Reels and YouTube Shorts swipes in real time, reflects your current state across 10 progressive brain health stages, and renders a floating overlay so you cannot escape the truth.</p>
+          <p>Brain Rot Meter is an Android application that tracks how many short-form video reels you scroll through each day. It displays a real-time floating overlay over Instagram and YouTube Shorts, visualizes your cognitive state across 10 progressive brain health stages, and offers friend leaderboards for peer accountability.</p>
         </div>
       </div>
 
-      <div class="faq-item reveal" data-delay="80">
+      <div class="faq-item reveal">
         <button class="faq-question">
           <span>How does it detect and count reels?</span>
           <span class="faq-icon"><svg class="hgi"><use href="#hgi-chevron-down"></use></svg></span>
         </button>
         <div class="faq-answer">
-          <p>The app leverages an Android Accessibility Service strictly to recognize forward scroll gestures inside verified reel containers. It employs a 5-minute sliding window filter to reject duplicates when you scroll backward. No screen frames, camera feeds, audio, or text content are inspected or recorded.</p>
+          <p>The app registers an Android Accessibility Service to detect forward scroll motions inside verified Reel and Short feeds. A 5-minute sliding window filter prevents accidental duplicates when you scroll back up. Video frames, cameras, messages, and audio are never accessed or recorded.</p>
         </div>
       </div>
 
-      <div class="faq-item reveal" data-delay="160">
-        <button class="faq-question">
-          <span>Does it work with YouTube Shorts?</span>
-          <span class="faq-icon"><svg class="hgi"><use href="#hgi-chevron-down"></use></svg></span>
-        </button>
-        <div class="faq-answer">
-          <p>Yes. Brain Rot Meter seamlessly detects YouTube Shorts alongside Instagram Reels. Separate statistics for each platform are logged locally so you can see which app claims more of your attention.</p>
-        </div>
-      </div>
-
-      <div class="faq-item reveal" data-delay="240">
+      <div class="faq-item reveal">
         <button class="faq-question">
           <span>What are the 10 Brain Stages?</span>
           <span class="faq-icon"><svg class="hgi"><use href="#hgi-chevron-down"></use></svg></span>
         </button>
         <div class="faq-answer">
-          <p>Your mind passes through 10 stages each calendar day: Stage 1 (0–10 reels, Healthy), Stage 2 (11–25, Slightly Distracted), Stage 3 (26–50, Brain Fog), Stage 4 (51–75, Sleepy Mode), Stage 5 (76–100, Overstimulated), Stage 6 (101–150, Fried), Stage 7 (151–250, Damaged), Stage 8 (251–400, Rotting), Stage 9 (401–600, Critical), and Stage 10 (601+ reels, Dead Brain). The counter resets every night at midnight.</p>
+          <p>The 10 stages range from Stage 1 (0–10 reels, Perfectly Healthy) through Stage 6 (101–150, Fried) to Stage 10 (601+ reels, Dead Brain). Each stage reflects your daily consumption and resets automatically every night at midnight.</p>
         </div>
       </div>
 
-      <div class="faq-item reveal" data-delay="320">
+      <div class="faq-item reveal">
         <button class="faq-question">
-          <span>Does the app respect privacy and store personal data?</span>
+          <span>Does it work with YouTube Shorts and Instagram Reels?</span>
           <span class="faq-icon"><svg class="hgi"><use href="#hgi-chevron-down"></use></svg></span>
         </button>
         <div class="faq-answer">
-          <p>Your data stays completely local on your device by default. We never ask for account credentials, passwords, or contacts. If you use the optional Friends feature, only your anonymized 6-character code and daily aggregate count are synced to Firestore.</p>
+          <p>Yes. Both Instagram Reels and YouTube Shorts are fully supported. Separate statistics for each platform are logged so you can understand which platform consumes more of your time.</p>
         </div>
       </div>
 
-      <div class="faq-item reveal" data-delay="400">
+      <div class="faq-item reveal">
         <button class="faq-question">
-          <span>Is Brain Rot Meter free?</span>
+          <span>Is it completely free?</span>
           <span class="faq-icon"><svg class="hgi"><use href="#hgi-chevron-down"></use></svg></span>
         </button>
         <div class="faq-answer">
-          <p>Brain Rot Meter is 100% free with no advertisements, no paywalls, and no subscription tiers. Digital awareness should be accessible to everyone.</p>
+          <p>Yes. Brain Rot Meter is 100% free with no paywalls, subscriptions, or advertisements. Awareness should not be gated.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- DOWNLOAD CTA -->
-  <section class="download-cta" id="download">
-    <div class="download-glow"></div>
-    <div class="download-content reveal">
-      <div class="download-logo-wrap">
-        <img src="assets/logo.png" alt="Brain Rot Meter" class="download-logo-img" />
-      </div>
+  <section class="download-section" id="download">
+    <div class="download-halo"></div>
+    <div class="download-card reveal">
+      <img src="assets/logo.png" alt="Brain Rot Meter" class="download-app-icon" />
+      <h2>Ready To Face<br/><span class="accent">The Numbers?</span></h2>
+      <p>Your brain is already counting. Now you can see the truth.</p>
 
-      <h2>Ready To Face<br/><span class="accent">Your Raw Numbers?</span></h2>
-      <p>Your brain is already taking the hit. It's time to see the tally.</p>
-
-      <div class="download-action-row">
+      <div class="download-btns">
         <a href="https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large">
           <svg class="hgi"><use href="#hgi-google-play"></use></svg>
           <span>Get on Google Play</span>
@@ -1004,16 +898,16 @@
         </a>
       </div>
 
-      <div class="download-badges-row">
-        <span class="download-note-item">
+      <div class="download-features">
+        <span class="feat-pill">
           <svg class="hgi hgi-sm"><use href="#hgi-check"></use></svg>
-          <span>Android 8.0+ Compatible</span>
+          <span>Android 8.0+</span>
         </span>
-        <span class="download-note-item">
+        <span class="feat-pill">
           <svg class="hgi hgi-sm"><use href="#hgi-check"></use></svg>
-          <span>Free &amp; Open to Use</span>
+          <span>100% Local Privacy</span>
         </span>
-        <span class="download-note-item">
+        <span class="feat-pill">
           <svg class="hgi hgi-sm"><use href="#hgi-check"></use></svg>
           <span>Zero Ads</span>
         </span>
@@ -1021,89 +915,59 @@
     </div>
   </section>
 
-  <!-- PRIVACY POLICY -->
-  <section class="legal-section" id="privacy">
-    <div class="legal-inner">
-      <div class="section-header reveal">
-        <span class="section-tag">
-          <svg class="hgi hgi-sm"><use href="#hgi-lock"></use></svg>
-          Compliance
-        </span>
-        <h2>Privacy <span class="accent">Policy</span></h2>
-      </div>
-      <div class="legal-content reveal">
-        <p class="legal-updated">Last updated: June 2025</p>
-
-        <h3>1. Commitment to Privacy</h3>
-        <p>Brain Rot Meter is engineered with a strict privacy-first philosophy. We do not sell your personal data. We do not transmit your browsing history or camera/audio feeds.</p>
-
-        <h3>2. Information We Process</h3>
-        <p>To deliver real-time counting functionality, the app processes:</p>
-        <ul>
-          <li>Reel and Short scroll events detected locally on your device</li>
-          <li>Aggregate daily count metrics and stage milestones (Stages 1 through 10)</li>
-          <li>Optional 6-character friend code and leaderboard pairing tokens if you use the social tab</li>
-        </ul>
-
-        <h3>3. Accessibility Service Usage</h3>
-        <p>Android Accessibility Services are utilized solely to observe window state changes and vertical scroll events within supported video feeds (Instagram Reels and YouTube Shorts). This service never inspects video playback frames, user messages, typed keys, or personal interactions.</p>
-
-        <h3>4. Data Storage &amp; Deletion</h3>
-        <p>All core statistics reside securely in local device storage. You can wipe all app data at any moment through Android Application Settings. For data inquiries, reach out to <a href="mailto:contact@ramascript.com">contact@ramascript.com</a>.</p>
-      </div>
+  <!-- PRIVACY POLICY & TERMS -->
+  <section id="privacy">
+    <div class="section-header reveal">
+      <span class="section-tag">
+        <svg class="hgi hgi-sm"><use href="#hgi-shield"></use></svg>
+        Legal
+      </span>
+      <h2>Privacy &amp; Terms</h2>
     </div>
-  </section>
 
-  <!-- TERMS & CONDITIONS -->
-  <section class="legal-section" id="terms">
-    <div class="legal-inner">
-      <div class="section-header reveal">
-        <span class="section-tag">
-          <svg class="hgi hgi-sm"><use href="#hgi-shield"></use></svg>
-          Terms
-        </span>
-        <h2>Terms &amp; <span class="accent">Conditions</span></h2>
-      </div>
-      <div class="legal-content reveal">
-        <p class="legal-updated">Last updated: June 2025</p>
+    <div class="legal-box reveal">
+      <div class="legal-updated">Last updated: June 2025 · RamaScript</div>
 
-        <h3>1. Terms of Use</h3>
-        <p>By downloading or using Brain Rot Meter, you agree to these Terms. The software is provided as-is for wellness, awareness, and entertainment purposes.</p>
+      <h3>1. Data Collection &amp; Usage</h3>
+      <p>Brain Rot Meter collects only reel scroll events detected on your local device. No personal messages, browsing histories, passwords, or video content are ever accessed, recorded, or transmitted.</p>
 
-        <h3>2. Third-Party Platforms</h3>
-        <p>Brain Rot Meter is an independent utility and is not affiliated with, endorsed by, or sponsored by Meta Platforms, Instagram, Google LLC, or YouTube.</p>
+      <h3>2. Accessibility Service Declaration</h3>
+      <p>Android Accessibility Services are employed strictly to recognize scroll gestures within Instagram Reels and YouTube Shorts feeds. This service does not inspect or interact with any other applications.</p>
 
-        <h3>3. Accuracy Disclaimer</h3>
-        <p>While the detection algorithm applies strict deduplication logic, scroll count accuracy depends on device performance, OS configuration, and third-party app layout updates.</p>
-      </div>
+      <h3>3. Optional Social Sync</h3>
+      <p>If you choose to use the Friends feature, only your anonymized 6-character code and daily aggregate count are synchronized with Firestore. You can clear your data at any moment in Android settings.</p>
+
+      <h3>4. Platform Affiliation</h3>
+      <p>Brain Rot Meter is an independent application and is not affiliated with, endorsed by, or sponsored by Meta Platforms, Instagram, Google LLC, or YouTube.</p>
+
+      <p style="margin-top: 1.5rem;">For privacy questions or data deletion requests, contact us at: <a href="mailto:contact@ramascript.com">contact@ramascript.com</a></p>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
+  <footer class="site-footer">
+    <div class="footer-content">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="Logo" class="footer-logo-img" />
-        <span class="footer-logo-text">Brain Rot Meter</span>
+        <img src="assets/logo.png" alt="Brain Rot Meter" class="footer-logo-img" />
+        <span>Brain Rot Meter</span>
       </div>
       <p class="footer-tagline">Count Every Reel. Watch Your Brain Rot.</p>
 
-      <nav class="footer-links">
+      <nav class="footer-nav">
         <a href="#features">Features</a>
-        <a href="#friends">Friends</a>
         <a href="#stages">10 Stages</a>
+        <a href="#friends">Friends</a>
         <a href="connect.html">Connect Friend</a>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms &amp; Conditions</a>
+        <a href="#privacy">Privacy &amp; Terms</a>
         <a href="mailto:contact@ramascript.com">Contact</a>
       </nav>
 
-      <div class="footer-bottom">
+      <div class="footer-meta">
         <span>v1.0.0</span>
         <span>•</span>
-        <span>© 2025 Brain Rot Meter. All rights reserved.</span>
+        <span>© 2025 Brain Rot Meter</span>
         <span>•</span>
-        <span>Not affiliated with Meta or Google.</span>
+        <span>All rights reserved</span>
       </div>
     </div>
   </footer>
