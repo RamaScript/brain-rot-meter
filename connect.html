@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect with Friends — Brain Rot Meter</title>
+    <meta
+      name="description"
+      content="A friend challenged you to connect on Brain Rot Meter! Compare your daily Instagram Reels and YouTube Shorts screen rot in real time."
+    />
+    <meta name="theme-color" content="#0d0a06" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="🧠 Connect on Brain Rot Meter" />
+    <meta
+      property="og:description"
+      content="Track your reel consumption and see who rots their brain faster. No fluff, just the raw truth."
+    />
+    <meta
+      property="og:image"
+      content="https://ramascript.com/brain-rot-meter/og-image.png"
+    />
+    <meta
+      property="og:url"
+      content="https://ramascript.com/brain-rot-meter/connect"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🧠 Connect on Brain Rot Meter" />
+    <meta
+      name="twitter:description"
+      content="Compare your daily reel consumption with friends in real time."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Syne", system-ui, -apple-system, sans-serif;
+        background: #080604;
+        color: #f5e6c8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px 16px;
+        background-image: 
+          radial-gradient(circle at 50% 10%, rgba(196, 135, 58, 0.12) 0%, transparent 60%),
+          radial-gradient(circle at 50% 90%, rgba(139, 69, 19, 0.08) 0%, transparent 60%);
+      }
+      .card {
+        background: #120d07;
+        border: 1px solid rgba(196, 135, 58, 0.25);
+        border-radius: 28px;
+        padding: 40px 28px;
+        max-width: 440px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(196, 135, 58, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #c4873a, transparent);
+      }
+      .emoji-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background: rgba(196, 135, 58, 0.1);
+        border: 1px solid rgba(196, 135, 58, 0.3);
+        border-radius: 24px;
+        font-size: 42px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 24px rgba(196, 135, 58, 0.2);
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: #fff;
+        letter-spacing: -0.01em;
+      }
+      .subtitle {
+        color: #b8a088;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      /* Inviter preview badge */
+      .inviter-card {
+        background: rgba(196, 135, 58, 0.08);
+        border: 1px dashed rgba(196, 135, 58, 0.35);
+        border-radius: 16px;
+        padding: 14px 16px;
+        margin-bottom: 20px;
+        display: none; /* Shown dynamically if name exists */
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+      }
+      .inviter-avatar {
+        font-size: 26px;
+        width: 44px;
+        height: 44px;
+        background: rgba(196, 135, 58, 0.15);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .inviter-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .inviter-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .inviter-status {
+        font-size: 12px;
+        color: #c4873a;
+        font-weight: 600;
+      }
+
+      /* Code box */
+      .code-box {
+        background: #1b130a;
+        border: 1px solid rgba(196, 135, 58, 0.35);
+        border-radius: 18px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        position: relative;
+      }
+      .code-box .label {
+        font-size: 11px;
+        font-family: "Space Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #b8a088;
+        margin-bottom: 6px;
+      }
+      .code-display {
+        font-family: "Space Mono", monospace;
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffc98b;
+        letter-spacing: 6px;
+        display: block;
+      }
+      .copy-btn {
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(196, 135, 58, 0.12);
+        border: 1px solid rgba(196, 135, 58, 0.3);
+        color: #f5e6c8;
+        padding: 6px 14px;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(196, 135, 58, 0.25);
+        color: #fff;
+      }
+
+      /* Primary buttons */
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 24px;
+        border-radius: 16px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.15s, opacity 0.2s, box-shadow 0.2s;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #c4873a 0%, #995c1c 100%);
+        color: #080604;
+        box-shadow: 0 4px 20px rgba(196, 135, 58, 0.3);
+      }
+      .btn-primary:hover {
+        opacity: 0.95;
+        box-shadow: 0 6px 24px rgba(196, 135, 58, 0.45);
+      }
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #f5e6c8;
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* How it works */
+      .steps {
+        text-align: left;
+        border-top: 1px solid rgba(196, 135, 58, 0.15);
+        padding-top: 20px;
+      }
+      .steps-title {
+        font-size: 11px;
+        font-family: "Space Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #b8a088;
+        margin-bottom: 14px;
+        text-align: center;
+      }
+      .step {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+        font-size: 13px;
+        color: #b8a088;
+        line-height: 1.4;
+      }
+      .step-num {
+        background: rgba(196, 135, 58, 0.15);
+        color: #ffc98b;
+        border-radius: 8px;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+
+      /* Toast */
+      #toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: #2a1a08;
+        border: 1px solid #c4873a;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        pointer-events: none;
+        z-index: 100;
+      }
+      #toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="emoji-wrap" id="header-emoji">🧠</div>
+      <h1 id="title-text">Connect on Brain Rot Meter</h1>
+      <p class="subtitle" id="subtitle-text">
+        Track your reel consumption and compare your brain rot in real time.
+      </p>
+
+      <!-- Dynamic Inviter Preview -->
+      <div class="inviter-card" id="inviter-card">
+        <div class="inviter-avatar" id="inviter-avatar">🫡</div>
+        <div class="inviter-info">
+          <div class="inviter-name" id="inviter-name">Friend</div>
+          <div class="inviter-status" id="inviter-status">
+            Active on Brain Rot Meter
+          </div>
+        </div>
+      </div>
+
+      <!-- Friend Code Display -->
+      <div class="code-box">
+        <div class="label">Friend Code</div>
+        <span class="code-display" id="code">------</span>
+        <button class="copy-btn" id="copy-btn" onclick="copyCode()">
+          📋 Copy Code
+        </button>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <a class="btn btn-primary" id="open-app-btn" href="#" onclick="openInApp(event)">
+          🚀 Open in Brain Rot Meter
+        </a>
+        <a
+          class="btn btn-secondary"
+          id="play-store-btn"
+          href="https://play.google.com/store/apps/details?id=com.ramascript.brainrotmeter"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📲 Get App on Google Play
+        </a>
+      </div>
+
+      <!-- Steps -->
+      <div class="steps">
+        <div class="steps-title">How To Connect</div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>Install <strong>Brain Rot Meter</strong> from Google Play if you haven't already.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>Tap <strong>“Open in Brain Rot Meter”</strong> above to automatically add this friend.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>Or copy the 6-character code and paste it in the <strong>Friends</strong> tab.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast">Copied to clipboard!</div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = (params.get("code") || "").trim().toUpperCase();
+      const inviterName = (params.get("name") || "").trim();
+      const inviterStage = (params.get("stage") || "").trim();
+      const inviterCount = params.get("count");
+
+      const codeNode = document.getElementById("code");
+      const titleNode = document.getElementById("title-text");
+      const subtitleNode = document.getElementById("subtitle-text");
+      const inviterCard = document.getElementById("inviter-card");
+      const inviterNameNode = document.getElementById("inviter-name");
+      const inviterStatusNode = document.getElementById("inviter-status");
+      const inviterAvatarNode = document.getElementById("inviter-avatar");
+      const openAppBtn = document.getElementById("open-app-btn");
+      const playStoreBtn = document.getElementById("play-store-btn");
+
+      const packageName = "com.ramascript.brainrotmeter";
+      const fallbackUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=utm_source%3Dfriend_invite${code ? `%26utm_campaign%3Dcode_${code}` : ''}`;
+      playStoreBtn.href = fallbackUrl;
+
+      // Stage name/emoji helper
+      const STAGE_MOODS = {
+        1: "Perfectly Healthy 🌱",
+        2: "Slightly Distracted 🙂",
+        3: "Brain Fog 🌫️",
+        4: "Sleepy Mode 😴",
+        5: "Overstimulated ⚡",
+        6: "Fried 🍳",
+        7: "Damaged 💀",
+        8: "Rotting 🦠",
+        9: "Critical ☢️",
+        10: "Dead Brain ⬛",
+        11: "Ghost Brain 👻",
+        15: "Internet Spirit 🔮",
+        20: "Cosmic Doomscroller 🌀",
+        25: "Singular Omni-Mind ☠️"
+      };
+
+      // Populate Code
+      if (code) {
+        codeNode.textContent = code;
+      } else {
+        codeNode.textContent = "NO CODE";
+        document.getElementById("copy-btn").style.display = "none";
+      }
+
+      // Populate Inviter Details if provided
+      if (inviterName) {
+        titleNode.textContent = `${inviterName} challenged you!`;
+        subtitleNode.textContent = "Connect to see who is doomscrolling more reels every day.";
+        inviterCard.style.display = "flex";
+        inviterNameNode.textContent = inviterName;
+
+        let statusText = "Ready to compare brain rot";
+        if (inviterCount && Number(inviterCount) > 0) {
+          statusText = `${inviterCount} reels watched today`;
+        } else if (inviterStage) {
+          statusText = `Stage ${inviterStage}: ${STAGE_MOODS[inviterStage] || 'Active Scroller'}`;
+        }
+        inviterStatusNode.textContent = statusText;
+
+        if (inviterStage && Number(inviterStage) >= 10) {
+          inviterAvatarNode.textContent = "🧟";
+        } else if (inviterStage && Number(inviterStage) >= 6) {
+          inviterAvatarNode.textContent = "🍳";
+        } else {
+          inviterAvatarNode.textContent = "🧠";
+        }
+      }
+
+      // Dynamic host resolution: Works for ramascript.com, ramascript.github.io, localhost, etc.
+      const currentHost = window.location.host || "ramascript.com";
+      const currentPath = window.location.pathname.replace(/\/connect(\.html)?$/, '/connect').replace(/\/$/, '');
+
+      function buildIntentUrl(codeValue) {
+        const query = codeValue ? `?code=${encodeURIComponent(codeValue)}` : "";
+        // Modern Android Intent URL
+        return `intent://${currentHost}${currentPath}${query}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${encodeURIComponent(fallbackUrl)};end`;
+      }
+
+      const intentUrl = buildIntentUrl(code);
+      openAppBtn.href = intentUrl;
+
+      function openInApp(event) {
+        if (event) event.preventDefault();
+        if (!code) {
+          window.location.href = fallbackUrl;
+          return;
+        }
+
+        // Try direct custom scheme fallback first, then intent
+        const fallbackTimer = setTimeout(() => {
+          // If browser is still open after 1.4s, offer download/fallback
+          window.location.href = fallbackUrl;
+        }, 1400);
+
+        window.location.href = intentUrl;
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            clearTimeout(fallbackTimer);
+          }
+        });
+      }
+
+      function copyCode() {
+        if (!code) return;
+        navigator.clipboard.writeText(code).then(() => {
+          showToast(`Friend code ${code} copied!`);
+        }).catch(() => {
+          // Fallback
+          const ta = document.createElement("textarea");
+          ta.value = code;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          showToast(`Friend code ${code} copied!`);
+        });
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+      }
+
+      // Auto-trigger if launched on mobile with a valid code
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile && code && !sessionStorage.getItem("attempted_app_open")) {
+        sessionStorage.setItem("attempted_app_open", "true");
+        setTimeout(() => {
+          openInApp();
+        }, 300);
+      }
+    </script>
+  </body>
+</html>
